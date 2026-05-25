@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鑫达精密制造 | 15年汽车零部件专家</title>
+<style>
+/* ===== CSS Variables & Theme ===== */
+:root {
+  --primary: #1a3a5c;
+  --primary-light: #2a5a8c;
+  --accent: #d97706;
+  --accent-hover: #b45309;
+  --bg: #f5f7fa;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #edf2f7;
+  --text: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --border: #e2e8f0;
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --hero-gradient: linear-gradient(135deg, #0f2744 0%, #1a3a5c 40%, #2a5a8c 100%);
+  --section-alt: #f0f4f8;
+  --transition: 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --primary: #4a9eff;
+  --primary-light: #6bb5ff;
+  --accent: #f59e0b;
+  --accent-hover: #d97706;
+  --bg: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --text: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --border: #30363d;
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  --hero-gradient: linear-gradient(135deg, #0a0e14 0%, #161b22 40%, #21262d 100%);
+  --section-alt: #0d1117;
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: background var(--transition), color var(--transition);
+  overflow-x: hidden;
+}
+
+a { color: var(--primary-light); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--accent); }
+
+img { max-width: 100%; display: block; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== Navbar ===== */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: all var(--transition);
+}
+[data-theme="dark"] .navbar { background: rgba(13,17,23,0.92); }
+
+.navbar .container {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+
+.nav-logo {
+  font-size: 1.35rem; font-weight: 800; color: var(--text);
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;
+  position: relative; padding: 4px 0;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -2px; left: 0;
+  width: 0; height: 2px; background: var(--accent);
+  transition: width var(--transition);
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-actions { display: flex; align-items: center; gap: 16px; }
+
+.theme-toggle {
+  background: none; border: 2px solid var(--border); border-radius: 50%;
+  width: 40px; height: 40px; cursor: pointer; font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition); color: var(--text-secondary);
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: rotate(30deg); }
+
+.mobile-menu-btn {
+  display: none; background: none; border: none; cursor: pointer;
+  flex-direction: column; gap: 5px; padding: 4px;
+}
+.mobile-menu-btn span {
+  width: 24px; height: 2px; background: var(--text);
+  transition: all var(--transition); border-radius: 2px;
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 100dvh; display: flex; align-items: center;
+  background: var(--hero-gradient); position: relative; overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(217,119,6,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(42,90,140,0.3) 0%, transparent 50%);
+}
+
+.hero-grid {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero .container {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center; position: relative; z-index: 1;
+}
+
+.hero-content { color: #fff; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(217,119,6,0.2); border: 1px solid rgba(217,119,6,0.3);
+  padding: 6px 16px; border-radius: 100px;
+  font-size: 0.85rem; color: #fbbf24; margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800;
+  line-height: 1.15; letter-spacing: -1px; margin-bottom: 20px;
+}
+
+.hero h1 .highlight { color: #fbbf24; }
+
+.hero p {
+  font-size: 1.15rem; color: rgba(255,255,255,0.75);
+  max-width: 520px; margin-bottom: 36px; line-height: 1.8;
+}
+
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 32px; border-radius: 12px; font-weight: 600;
+  font-size: 0.95rem; border: none; cursor: pointer;
+  transition: all var(--transition);
+}
+.btn-primary {
+  background: var(--accent); color: #fff;
+  box-shadow: 0 4px 16px rgba(217,119,6,0.3);
+}
+.btn-primary:hover {
+  background: var(--accent-hover); transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(217,119,6,0.4);
+}
+.btn-outline {
+  background: transparent; color: #fff;
+  border: 2px solid rgba(255,255,255,0.25);
+}
+.btn-outline:hover {
+  border-color: #fff; background: rgba(255,255,255,0.05);
+  transform: translateY(-2px);
+}
+
+.hero-visual {
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px; padding: 40px;
+  width: 100%; max-width: 420px;
+}
+
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.stat-item { text-align: center; }
+.stat-number {
+  font-size: 2.8rem; font-weight: 800; color: #fff;
+  letter-spacing: -1px; line-height: 1;
+}
+.stat-number .unit { font-size: 1.2rem; color: var(--accent); }
+.stat-label {
+  font-size: 0.85rem; color: rgba(255,255,255,0.6);
+  margin-top: 6px;
+}
+
+/* ===== Scroll Animations ===== */
+.fade-up {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+.fade-left {
+  opacity: 0; transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-left.visible { opacity: 1; transform: translateX(0); }
+
+.fade-right {
+  opacity: 0; transform: translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-right.visible { opacity: 1; transform: translateX(0); }
+
+.scale-in {
+  opacity: 0; transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.scale-in.visible { opacity: 1; transform: scale(1); }
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* ===== Sections ===== */
+section { padding: 100px 0; }
+
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-header .label {
+  display: inline-block; font-size: 0.85rem; font-weight: 600;
+  color: var(--accent); text-transform: uppercase; letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.section-header h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800;
+  color: var(--text); letter-spacing: -0.5px; margin-bottom: 16px;
+}
+.section-header p {
+  font-size: 1.05rem; color: var(--text-secondary);
+  max-width: 600px; margin: 0 auto;
+}
+
+/* ===== About ===== */
+#about { background: var(--section-alt); }
+
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: center;
+}
+
+.about-image {
+  border-radius: 20px; overflow: hidden; position: relative;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.about-image .placeholder-icon {
+  font-size: 4rem; color: rgba(255,255,255,0.3);
+}
+
+.about-image .caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  padding: 40px 24px 16px;
+  color: rgba(255,255,255,0.7); font-size: 0.85rem;
+}
+
+.about-content h3 {
+  font-size: 1.6rem; font-weight: 700; margin-bottom: 16px;
+  color: var(--text);
+}
+.about-content p {
+  color: var(--text-secondary); margin-bottom: 16px; line-height: 1.9;
+}
+.about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.about-tag {
+  background: var(--bg-tertiary); border: 1px solid var(--border);
+  padding: 6px 16px; border-radius: 100px;
+  font-size: 0.85rem; color: var(--text-secondary);
+  transition: all var(--transition);
+}
+.about-tag:hover {
+  border-color: var(--accent); color: var(--accent);
+  background: rgba(217,119,6,0.05);
+}
+
+/* ===== Stats Bar ===== */
+.stats-bar {
+  background: var(--primary); padding: 60px 0; position: relative;
+  overflow: hidden;
+}
+[data-theme="dark"] .stats-bar { background: linear-gradient(135deg, #161b22, #21262d); }
+.stats-bar .container {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 40px; text-align: center;
+}
+
+.stats-bar .stat-item { color: #fff; }
+.stats-bar .stat-number {
+  font-size: 3.2rem; font-weight: 800; color: #fff;
+  line-height: 1; margin-bottom: 8px;
+}
+.stats-bar .stat-number .counter { display: inline; }
+.stats-bar .stat-number .unit { font-size: 1.2rem; color: #fbbf24; margin-left: 2px; }
+.stats-bar .stat-label {
+  font-size: 0.9rem; color: rgba(255,255,255,0.65);
+}
+
+.stats-bar::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(217,119,6,0.08), transparent 70%);
+}
+
+/* ===== Advantages ===== */
+.advantages-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.advantage-card {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 20px; padding: 36px;
+  transition: all var(--transition); position: relative; overflow: hidden;
+}
+.advantage-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; background: var(--primary); transform: scaleX(0);
+  transform-origin: left; transition: transform var(--transition);
+}
+.advantage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow);
+}
+.advantage-card:hover::before { transform: scaleX(1); }
+
+.advantage-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: rgba(217,119,6,0.1); display: flex;
+  align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 20px;
+}
+
+.advantage-card h3 {
+  font-size: 1.15rem; font-weight: 700; margin-bottom: 12px;
+  color: var(--text);
+}
+.advantage-card p {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+}
+
+/* ===== Products ===== */
+#products { background: var(--section-alt); }
+
+.products-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.product-card {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 20px; overflow: hidden;
+  transition: all var(--transition);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow);
+}
+
+.product-image {
+  aspect-ratio: 16/10; position: relative; overflow: hidden;
+}
+.product-image .img-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; color: rgba(255,255,255,0.3);
+}
+
+.product-image.style-1 .img-placeholder {
+  background: linear-gradient(135deg, #1a3a5c, #2a5a8c);
+}
+.product-image.style-2 .img-placeholder {
+  background: linear-gradient(135deg, #744210, #d97706);
+}
+.product-image.style-3 .img-placeholder {
+  background: linear-gradient(135deg, #065f46, #10b981);
+}
+.product-image.style-4 .img-placeholder {
+  background: linear-gradient(135deg, #4c1d95, #7c3aed);
+}
+.product-image.style-5 .img-placeholder {
+  background: linear-gradient(135deg, #9a3412, #ea580c);
+}
+.product-image.style-6 .img-placeholder {
+  background: linear-gradient(135deg, #155e75, #06b6d4);
+}
+
+.product-image .caption {
+  position: absolute; bottom: 12px; right: 12px;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
+  padding: 4px 12px; border-radius: 100px;
+  font-size: 0.75rem; color: rgba(255,255,255,0.8);
+}
+
+.product-info { padding: 24px; }
+.product-info h3 {
+  font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;
+  color: var(--text);
+}
+.product-info p {
+  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;
+}
+.product-specs {
+  display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap;
+}
+.product-spec {
+  font-size: 0.78rem; padding: 4px 10px; border-radius: 6px;
+  background: var(--bg-tertiary); color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* ===== Testimonials ===== */
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.testimonial-card {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 20px; padding: 32px;
+  transition: all var(--transition); position: relative;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow);
+}
+
+.testimonial-quote {
+  font-size: 1rem; color: var(--text-secondary);
+  line-height: 1.85; margin-bottom: 20px;
+  position: relative; padding-left: 20px;
+  border-left: 3px solid var(--accent);
+}
+
+.testimonial-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.testimonial-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--bg-tertiary); display: flex;
+  align-items: center; justify-content: center;
+  font-size: 1.1rem; font-weight: 700; color: var(--primary);
+}
+.testimonial-name { font-weight: 600; font-size: 0.92rem; color: var(--text); }
+.testimonial-role { font-size: 0.8rem; color: var(--text-muted); }
+
+/* ===== Contact ===== */
+#contact { background: var(--section-alt); }
+
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.contact-info h3 {
+  font-size: 1.6rem; font-weight: 700; margin-bottom: 16px;
+  color: var(--text);
+}
+.contact-info > p {
+  color: var(--text-secondary); margin-bottom: 32px; line-height: 1.8;
+}
+
+.contact-items { display: flex; flex-direction: column; gap: 20px; }
+.contact-item {
+  display: flex; align-items: center; gap: 16px;
+}
+.contact-item-icon {
+  width: 48px; height: 48px; border-radius: 14px;
+  background: rgba(217,119,6,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.contact-item-text { font-size: 0.92rem; color: var(--text-secondary); }
+.contact-item-text strong { display: block; color: var(--text); margin-bottom: 2px; }
+
+.contact-form-card {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 20px; padding: 36px;
+  box-shadow: var(--card-shadow);
+}
+
+.contact-form-card h3 {
+  font-size: 1.3rem; font-weight: 700; margin-bottom: 24px;
+  color: var(--text);
+}
+
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block; font-size: 0.88rem; font-weight: 600;
+  color: var(--text); margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 12px 16px; border: 1.5px solid var(--border);
+  border-radius: 12px; font-size: 0.92rem;
+  background: var(--bg); color: var(--text);
+  font-family: inherit; transition: all var(--transition);
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(217,119,6,0.1);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.form-submit {
+  width: 100%; padding: 14px; border: none; border-radius: 12px;
+  background: var(--accent); color: #fff; font-size: 1rem;
+  font-weight: 600; cursor: pointer; transition: all var(--transition);
+  font-family: inherit;
+}
+.form-submit:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(217,119,6,0.3);
+}
+.form-submit:active { transform: translateY(0); }
+
+.form-toast {
+  display: none; position: fixed; top: 90px; right: 24px;
+  background: #10b981; color: #fff; padding: 14px 24px;
+  border-radius: 12px; font-weight: 600; font-size: 0.92rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2); z-index: 9999;
+  animation: slideIn 0.4s ease;
+}
+.form-toast.show { display: block; }
+
+@keyframes slideIn {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--bg-tertiary); border-top: 1px solid var(--border);
+  padding: 40px 0;
+}
+.footer .container {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-text { font-size: 0.85rem; color: var(--text-muted); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 0.85rem; color: var(--text-muted);
+  transition: color var(--transition);
+}
+.footer-links a:hover { color: var(--accent); }
+
+/* ===== Parallax ===== */
+.parallax-bg {
+  position: absolute; inset: 0; z-index: 0;
+  will-change: transform;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .hero .container { grid-template-columns: 1fr; text-align: center; }
+  .hero p { margin-left: auto; margin-right: auto; }
+  .hero-buttons { justify-content: center; }
+  .hero-visual { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .advantages-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .stats-bar .container { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 72px; left: 0; right: 0;
+    background: var(--bg-secondary); border-bottom: 1px solid var(--border);
+    padding: 16px 24px; gap: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+
+  section { padding: 60px 0; }
+  .advantages-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer .container { flex-direction: column; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .fade-left, .fade-right, .scale-in {
+    opacity: 1; transform: none; transition: none;
+  }
+  .parallax-bg { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo">鑫达<span>精密</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">关于我们</a></li>
+      <li><a href="#advantages">核心优势</a></li>
+      <li><a href="#products">产品展示</a></li>
+      <li><a href="#testimonials">客户评价</a></li>
+      <li><a href="#contact">联系我们</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="切换深色模式">&#9790;</button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Toast -->
+<div class="form-toast" id="formToast">提交成功！我们会尽快与您联系。</div>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">&#9889; 15年专业汽车零部件制造</div>
+      <h1>精工制造<br><span class="highlight">驱动未来</span></h1>
+      <p>随州鑫达精密制造有限公司，专注汽车零部件加工15年。30余台数控机床、80余名专业技工，为东风汽车等一线品牌提供高品质零部件，年产能超200万件。</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary">查看产品 &#8594;</a>
+        <a href="#contact" class="btn btn-outline">获取报价</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="15">0</span><span class="unit">年</span></div>
+            <div class="stat-label">行业深耕</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="30">0</span><span class="unit">+</span></div>
+            <div class="stat-label">数控机床</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="80">0</span><span class="unit">+</span></div>
+            <div class="stat-label">专业技工</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number"><span class="counter" data-target="200">0</span><span class="unit">万</span></div>
+            <div class="stat-label">年产能/件</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image fade-left">
+        <div class="placeholder-icon">&#9881;</div>
+        <div class="caption">此处替换为实际图片 — 工厂全景/生产线</div>
+      </div>
+      <div class="about-content fade-right">
+        <div class="section-header" style="text-align:left;">
+          <div class="label">关于我们</div>
+          <h2>15年专注，只为做好每一个零件</h2>
+        </div>
+        <p>随州鑫达精密制造有限公司成立于2011年，坐落于湖北省随州市高新技术产业园区。公司专注于汽车发动机零部件、变速箱壳体、转向系统组件的研发与制造。</p>
+        <p>作为东风汽车的核心供应商，我们始终坚持"精工细作、品质为本"的经营理念，建立了完善的质量管理体系，通过IATF 16949认证，产品合格率达99.6%以上。</p>
+        <div class="about-tags">
+          <span class="about-tag">IATF 16949认证</span>
+          <span class="about-tag">东风核心供应商</span>
+          <span class="about-tag">ISO 14001</span>
+          <span class="about-tag">数控加工中心</span>
+          <span class="about-tag">三坐标检测</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="stats-bar" id="statsBar">
+  <div class="parallax-bg" data-speed="0.3"></div>
+  <div class="container">
+    <div class="stat-item fade-up delay-1">
+      <div class="stat-number"><span class="counter" data-target="15">0</span><span class="unit">年</span></div>
+      <div class="stat-label">行业经验</div>
+    </div>
+    <div class="stat-item fade-up delay-2">
+      <div class="stat-number"><span class="counter" data-target="30">0</span><span class="unit">台</span></div>
+      <div class="stat-label">数控设备</div>
+    </div>
+    <div class="stat-item fade-up delay-3">
+      <div class="stat-number"><span class="counter" data-target="80">0</span><span class="unit">人</span></div>
+      <div class="stat-label">技术团队</div>
+    </div>
+    <div class="stat-item fade-up delay-4">
+      <div class="stat-number"><span class="counter" data-target="99.6" data-decimal="1">0</span><span class="unit">%</span></div>
+      <div class="stat-label">产品合格率</div>
+    </div>
+  </div>
+</section>
+
+<!-- Advantages -->
+<section id="advantages">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">核心优势</div>
+      <h2>为什么选择鑫达精密</h2>
+      <p>15年沉淀的技术实力与服务体系，让每一个项目都高效交付</p>
+    </div>
+    <div class="advantages-grid">
+      <div class="advantage-card scale-in delay-1">
+        <div class="advantage-icon">&#9881;</div>
+        <h3>精密加工能力</h3>
+        <p>30余台进口数控加工中心，精度可达0.005mm，覆盖车、铣、磨、镗全工艺链，满足各类复杂零部件加工需求。</p>
+      </div>
+      <div class="advantage-card scale-in delay-2">
+        <div class="advantage-icon">&#9733;</div>
+        <h3>一线品牌背书</h3>
+        <p>长期为东风汽车、比亚迪等一线车企供货，通过IATF 16949体系认证，质量管控达到行业标杆水平。</p>
+      </div>
+      <div class="advantage-card scale-in delay-3">
+        <div class="advantage-icon">&#9201;</div>
+        <h3>快速交付响应</h3>
+        <p>标准化生产流程 + 柔性制造能力，样品开发7-15天，批量订单准时交付率98%以上。</p>
+      </div>
+      <div class="advantage-card scale-in delay-1">
+        <div class="advantage-icon">&#128270;</div>
+        <h3>全流程品控</h3>
+        <p>三坐标检测、首件检验、过程巡检、出货全检四重品控体系，从原材料到成品全程可追溯。</p>
+      </div>
+      <div class="advantage-card scale-in delay-2">
+        <div class="advantage-icon">&#128300;</div>
+        <h3>技术研发团队</h3>
+        <p>10人专职研发团队，支持新品同步开发，可协助客户进行产品优化设计和工艺方案评审。</p>
+      </div>
+      <div class="advantage-card scale-in delay-3">
+        <div class="advantage-icon">&#128176;</div>
+        <h3>高性价比方案</h3>
+        <p>华中地区优质供应链资源，原材料集中采购，在保证品质的前提下，帮助客户降低15%-20%采购成本。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="products">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">产品展示</div>
+      <h2>核心产品系列</h2>
+      <p>覆盖发动机、变速箱、转向系统等核心零部件</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card fade-up delay-1">
+        <div class="product-image style-1">
+          <div class="img-placeholder">&#9881;</div>
+          <div class="caption">此处替换为实际产品图片</div>
+        </div>
+        <div class="product-info">
+          <h3>发动机缸体</h3>
+          <p>采用高强度铸铁材质，精密加工，适配多种发动机型号，耐磨耐高温。</p>
+          <div class="product-specs">
+            <span class="product-spec">HT250铸铁</span>
+            <span class="product-spec">精度0.01mm</span>
+            <span class="product-spec">多型号适配</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card fade-up delay-2">
+        <div class="product-image style-2">
+          <div class="img-placeholder">&#128260;</div>
+          <div class="caption">此处替换为实际产品图片</div>
+        </div>
+        <div class="product-info">
+          <h3>变速箱壳体</h3>
+          <p>铝合金低压铸造壳体，结构强度高，密封性好，支持手动/自动变速箱。</p>
+          <div class="product-specs">
+            <span class="product-spec">ADC12铝合金</span>
+            <span class="product-spec">低压铸造</span>
+            <span class="product-spec">密封IP67</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card fade-up delay-3">
+        <div class="product-image style-3">
+          <div class="img-placeholder">&#128663;</div>
+          <div class="caption">此处替换为实际产品图片</div>
+        </div>
+        <div class="product-info">
+          <h3>转向节总成</h3>
+          <p>锻钢材质转向节，经热处理强化，承载能力强，通过50万次疲劳测试。</p>
+          <div class="product-specs">
+            <span class="product-spec">40Cr锻钢</span>
+            <span class="product-spec">淬火处理</span>
+            <span class="product-spec">疲劳测试</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card fade-up delay-1">
+        <div class="product-image style-4">
+          <div class="img-placeholder">&#9881;</div>
+          <div class="caption">此处替换为实际产品图片</div>
+        </div>
+        <div class="product-info">
+          <h3>曲轴组件</h3>
+          <p>42CrMo合金钢曲轴，经调质处理+表面淬火，旋转精度高，动平衡优良。</p>
+          <div class="product-specs">
+            <span class="product-spec">42CrMo合金钢</span>
+            <span class="product-spec">动平衡G2.5</span>
+            <span class="product-spec">表面淬火</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card fade-up delay-2">
+        <div class="product-image style-5">
+          <div class="img-placeholder">&#128260;</div>
+          <div class="caption">此处替换为实际产品图片</div>
+        </div>
+        <div class="product-info">
+          <h3>活塞连杆</h3>
+          <p>铝合金锻造活塞+高强度连杆，重量轻、强度高，适配高性能发动机需求。</p>
+          <div class="product-specs">
+            <span class="product-spec">铝合金锻造</span>
+            <span class="product-spec">轻量化设计</span>
+            <span class="product-spec">耐高温</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-card fade-up delay-3">
+        <div class="product-image style-6">
+          <div class="img-placeholder">&#128300;</div>
+          <div class="caption">此处替换为实际产品图片</div>
+        </div>
+        <div class="product-info">
+          <h3>传感器支架</h3>
+          <p>精密冲压+CNC加工传感器安装支架，尺寸精确，安装便捷，适配多种传感器型号。</p>
+          <div class="product-specs">
+            <span class="product-spec">不锈钢冲压</span>
+            <span class="product-spec">CNC精加工</span>
+            <span class="product-spec">多型号兼容</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">客户评价</div>
+      <h2>合作伙伴怎么说</h2>
+      <p>来自一线车企的真实反馈</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up delay-1">
+        <div class="testimonial-quote">"鑫达精密是我们合作最稳定的供应商之一。交期准时、品质过硬，尤其是他们的技术响应速度，新品开发阶段配合非常紧密。"</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">张</div>
+          <div>
+            <div class="testimonial-name">张伟</div>
+            <div class="testimonial-role">东风汽车 采购部经理</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up delay-2">
+        <div class="testimonial-quote">"之前换过好几家供应商，自从和鑫达合作后就再也没变过。产品合格率长期稳定在99.5%以上，省心。"</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">李</div>
+          <div>
+            <div class="testimonial-name">李明</div>
+            <div class="testimonial-role">三江万山 技术总监</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up delay-3">
+        <div class="testimonial-quote">"小批量试产也能认真对待，不嫌单小。开发阶段的沟通很顺畅，工程团队的专业程度超出预期。"</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">王</div>
+          <div>
+            <div class="testimonial-name">王芳</div>
+            <div class="testimonial-role">程力专汽 品质部主管</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="label">联系我们</div>
+      <h2>开启合作</h2>
+      <p>无论您需要样品打样还是批量生产，欢迎随时联系我们</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-left">
+        <h3>随时欢迎来访洽谈</h3>
+        <p>我们提供免费样品评估服务，最快24小时内出具初步报价方案。欢迎来电咨询或直接到厂参观考察。</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">&#128222;</div>
+            <div class="contact-item-text">
+              <strong>电话咨询</strong>
+              0722-3588 888 / 138-0000-8888
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">&#128205;</div>
+            <div class="contact-item-text">
+              <strong>工厂地址</strong>
+              湖北省随州市高新技术产业园区鑫达路88号
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">&#128231;</div>
+            <div class="contact-item-text">
+              <strong>电子邮箱</strong>
+              sales@xinda-precision.com
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">&#128338;</div>
+            <div class="contact-item-text">
+              <strong>工作时间</strong>
+              周一至周六 8:00 - 17:30
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-card fade-right">
+        <h3>在线留言</h3>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">姓名 *</label>
+              <input type="text" id="name" placeholder="请输入您的姓名" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">电话 *</label>
+              <input type="tel" id="phone" placeholder="请输入联系电话" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="company">公司名称</label>
+            <input type="text" id="company" placeholder="请输入公司名称">
+          </div>
+          <div class="form-group">
+            <label for="product">意向产品</label>
+            <select id="product">
+              <option value="">请选择感兴趣的产品</option>
+              <option>发动机缸体</option>
+              <option>变速箱壳体</option>
+              <option>转向节总成</option>
+              <option>曲轴组件</option>
+              <option>活塞连杆</option>
+              <option>传感器支架</option>
+              <option>其他/定制加工</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">留言内容 *</label>
+            <textarea id="message" placeholder="请描述您的需求，如产品规格、数量、交期要求等" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">提交询价</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-text">&copy; 2026 随州鑫达精密制造有限公司 版权所有 | 鄂ICP备XXXXXXXX号</div>
+    <div class="footer-links">
+      <a href="#about">关于我们</a>
+      <a href="#products">产品中心</a>
+      <a href="#contact">联系方式</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== Theme Toggle =====
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+
+function setTheme(theme) {
+  html.setAttribute('data-theme', theme);
+  themeToggle.innerHTML = theme === 'dark' ? '&#9788;' : '&#9790;';
+  localStorage.setItem('theme', theme);
+}
+
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  setTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+// Load saved theme
+const saved = localStorage.getItem('theme');
+if (saved) setTheme(saved);
+else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+
+// ===== Mobile Menu =====
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// ===== Scroll Animations =====
+const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in').forEach(el => {
+  observer.observe(el);
+});
+
+// ===== Number Counter Animation =====
+function animateCounter(el) {
+  const target = parseFloat(el.getAttribute('data-target'));
+  const decimal = parseInt(el.getAttribute('data-decimal') || '0');
+  const duration = 2000;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    const current = eased * target;
+
+    if (decimal > 0) {
+      el.textContent = current.toFixed(decimal);
+    } else {
+      el.textContent = Math.floor(current);
+    }
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      if (decimal > 0) {
+        el.textContent = target.toFixed(decimal);
+      } else {
+        el.textContent = target;
+      }
+    }
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+// ===== Parallax on Scroll =====
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      document.querySelectorAll('.parallax-bg').forEach(el => {
+        const speed = parseFloat(el.getAttribute('data-speed') || 0.3);
+        el.style.transform = `translateY(${scrollY * speed}px)`;
+      });
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+// ===== Navbar scroll effect =====
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+  if (currentScroll > 100) {
+    navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+  } else {
+    navbar.style.boxShadow = 'none';
+  }
+  lastScroll = currentScroll;
+});
+
+// ===== Form Submit =====
+const form = document.getElementById('contactForm');
+const toast = document.getElementById('formToast');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !phone || !message) return;
+
+  // Show toast
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+
+  // Reset form
+  form.reset();
+});
+
+// ===== Smooth scroll for anchor links =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
