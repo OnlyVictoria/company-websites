@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>湖北金龙新材料股份有限公司 - 高分子纺织涂覆材料领军企业</title>
+<style>
+:root{
+  --bg:#F7F8FA;--bg2:#FFFFFF;--bg3:#EEF0F4;
+  --tx:#1A1D23;--tx2:#4A4D55;--tx3:#8A8D95;
+  --bd:#E2E4E8;--bd2:#D0D3D8;
+  --pri:#0B3D91;--pri2:#1A5FCC;--pri3:#E8EFFC;
+  --acc:#C9A84C;--acc2:#A07E2E;--acc3:#FDF8EB;
+  --gn:#10B981;--rd:#EF4444;
+  --sh:0 2px 12px rgba(0,0,0,.06);--sh2:0 8px 32px rgba(0,0,0,.1);
+  --r:12px;--rl:20px;--rf:9999px;
+  --tr:all .35s ease;
+}
+[data-theme="dark"]{
+  --bg:#0B0F19;--bg2:#111827;--bg3:#1F2937;
+  --tx:#F1F3F5;--tx2:#B0B5BF;--tx3:#6B7280;
+  --bd:#1F2937;--bd2:#374151;
+  --pri:#3B82F6;--pri2:#60A5FA;--pri3:rgba(59,130,246,.12);
+  --acc:#FBBF24;--acc2:#D97706;--acc3:rgba(251,191,36,.08);
+  --sh:0 2px 12px rgba(0,0,0,.3);--sh2:0 8px 32px rgba(0,0,0,.4);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--tx);line-height:1.7;overflow-x:hidden;transition:background .4s,color .4s}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+.container{max-width:1240px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;background:var(--bg2);border-bottom:1px solid var(--bd);transition:var(--tr)}
+.nav.scrolled{box-shadow:var(--sh2);backdrop-filter:blur(16px)}
+.nav .container{display:flex;align-items:center;justify-content:space-between;height:100%}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--tx)}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--pri),var(--pri2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:900}
+.logo span{color:var(--acc)}
+.nav-links{display:flex;gap:4px}
+.nav-links a{padding:8px 16px;font-size:14px;font-weight:500;color:var(--tx2);border-radius:var(--rf);transition:var(--tr)}
+.nav-links a:hover{color:var(--pri);background:var(--pri3)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.theme-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--bd);background:var(--bg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:var(--tr)}
+.theme-btn:hover{border-color:var(--acc);background:var(--acc3)}
+.nav-cta{padding:9px 22px;border-radius:var(--rf);background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-weight:700;font-size:13px;border:none;cursor:pointer;transition:var(--tr);box-shadow:0 2px 12px rgba(201,168,76,.3)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(201,168,76,.4)}
+.mob-btn{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--tx)}
+
+/* HERO */
+.hero{position:relative;padding:140px 0 100px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,var(--pri3),transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,var(--acc3),transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:var(--rf);background:var(--acc3);border:1px solid var(--acc);color:var(--acc2);font-size:13px;font-weight:600;margin-bottom:24px}
+.hero h1{font-size:clamp(28px,4vw,52px);font-weight:900;line-height:1.2;margin-bottom:20px;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;color:var(--pri);background:linear-gradient(135deg,var(--pri),var(--pri2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:17px;color:var(--tx2);line-height:1.8;margin-bottom:32px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-p{padding:13px 32px;border-radius:var(--rf);background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-weight:700;font-size:15px;border:none;cursor:pointer;transition:var(--tr)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(11,61,145,.3)}
+.btn-o{padding:13px 32px;border-radius:var(--rf);background:transparent;border:2px solid var(--bd2);color:var(--tx);font-weight:600;font-size:15px;cursor:pointer;transition:var(--tr)}
+.btn-o:hover{border-color:var(--pri);color:var(--pri)}
+.hero-visual{position:relative}
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hcard{padding:28px 24px;border-radius:var(--rl);background:var(--bg2);border:1px solid var(--bd);box-shadow:var(--sh);transition:var(--tr)}
+.hcard:hover{transform:translateY(-4px);box-shadow:var(--sh2);border-color:var(--pri)}
+.hcard .num{font-size:36px;font-weight:900;background:linear-gradient(135deg,var(--pri),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2}
+.hcard .num small{font-size:16px;-webkit-text-fill-color:var(--acc)}
+.hcard .label{font-size:14px;color:var(--tx3);margin-top:4px;font-weight:500}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.hstat{text-align:center;padding:20px 12px;border-radius:var(--r);background:var(--bg2);border:1px solid var(--bd);transition:var(--tr)}
+.hstat:hover{border-color:var(--acc)}
+.hstat .sn{font-size:28px;font-weight:900;color:var(--pri);font-family:"Inter",sans-serif}
+.hstat .sn small{font-size:13px;color:var(--acc2);margin-left:2px}
+.hstat .sl{font-size:13px;color:var(--tx3);margin-top:2px}
+
+/* SECTION COMMON */
+section{padding:90px 0}
+.sec-head{text-align:center;margin-bottom:56px}
+.sec-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:var(--rf);background:var(--pri3);color:var(--pri);font-size:12px;font-weight:700;letter-spacing:1.5px;margin-bottom:14px}
+.sec-title{font-size:clamp(26px,3.5vw,40px);font-weight:900;margin-bottom:12px;letter-spacing:-.3px}
+.sec-desc{font-size:16px;color:var(--tx3);max-width:560px;margin:0 auto;line-height:1.8}
+
+/* MARQUEE */
+.marquee-bar{padding:28px 0;background:var(--bg2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);overflow:hidden}
+.marquee-track{display:flex;gap:48px;animation:marquee 35s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.mq-item{display:flex;align-items:center;gap:10px;flex-shrink:0;font-size:14px;font-weight:600;color:var(--tx2);white-space:nowrap}
+.mq-icon{width:32px;height:32px;border-radius:8px;background:var(--pri3);display:flex;align-items:center;justify-content:center;color:var(--pri);font-size:14px}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-img{position:relative;border-radius:var(--rl);overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,#0B3D91,#1A5FCC,#C9A84C);display:flex;align-items:center;justify-content:center}
+.about-img-inner{text-align:center;color:#fff;padding:40px}
+.about-img-inner .icon{font-size:64px;margin-bottom:16px}
+.about-img-inner h3{font-size:28px;font-weight:900;opacity:.95}
+.about-img-inner p{font-size:16px;opacity:.7;margin-top:8px}
+.about-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,61,145,.15),rgba(201,168,76,.15));pointer-events:none}
+.about-text h3{font-size:28px;font-weight:900;margin-bottom:20px;line-height:1.3}
+.about-text p{color:var(--tx2);line-height:2;margin-bottom:16px;font-size:15px}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.about-feat{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--r);background:var(--bg);border:1px solid var(--bd);font-size:14px;font-weight:600;transition:var(--tr)}
+.about-feat:hover{border-color:var(--pri);color:var(--pri)}
+.about-feat .af-icon{width:32px;height:32px;border-radius:8px;background:var(--pri3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+
+/* PRODUCTS */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.prod-card{border-radius:var(--rl);overflow:hidden;background:var(--bg2);border:1px solid var(--bd);transition:var(--tr)}
+.prod-card:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:var(--pri)}
+.prod-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative}
+.prod-img.pi1{background:linear-gradient(135deg,#1E3A5F,#0B3D91)}
+.prod-img.pi2{background:linear-gradient(135deg,#1A2744,#0F3460)}
+.prod-img.pi3{background:linear-gradient(135deg,#162447,#1B3A5C)}
+.prod-img.pi4{background:linear-gradient(135deg,#2C3333,#1A2744)}
+.prod-img.pi5{background:linear-gradient(135deg,#1B1B3A,#2D1B69)}
+.prod-img.pi6{background:linear-gradient(135deg,#1A3C34,#0D2818)}
+.prod-badge{position:absolute;top:14px;right:14px;padding:4px 12px;border-radius:var(--rf);font-size:11px;font-weight:700;background:var(--acc);color:#fff}
+.prod-body{padding:22px}
+.prod-body h4{font-size:17px;font-weight:700;margin-bottom:8px}
+.prod-body p{font-size:13px;color:var(--tx3);line-height:1.7}
+.prod-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.prod-tags span{padding:3px 10px;border-radius:var(--rf);background:var(--bg3);color:var(--tx2);font-size:12px;font-weight:500}
+
+/* APPS */
+.apps{background:var(--bg2)}
+.apps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.app-card{text-align:center;padding:32px 18px;border-radius:var(--rl);background:var(--bg);border:1px solid var(--bd);transition:var(--tr)}
+.app-card:hover{transform:translateY(-4px);box-shadow:var(--sh2);border-color:var(--acc)}
+.app-icon{width:60px;height:60px;border-radius:16px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:28px}
+.app-icon.ai1{background:linear-gradient(135deg,#FEE2E2,#FECACA)}
+.app-icon.ai2{background:linear-gradient(135deg,#FEF3C7,#FDE68A)}
+.app-icon.ai3{background:linear-gradient(135deg,#DBEAFE,#BFDBFE)}
+.app-icon.ai4{background:linear-gradient(135deg,#D1FAE5,#A7F3D0)}
+.app-icon.ai5{background:linear-gradient(135deg,#E0E7FF,#C7D2FE)}
+.app-icon.ai6{background:linear-gradient(135deg,#FCE7F3,#FBCFE8)}
+.app-icon.ai7{background:linear-gradient(135deg,#CCFBF1,#99F6E4)}
+.app-icon.ai8{background:linear-gradient(135deg,#FEF9C3,#FEF08A)}
+.app-card h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.app-card p{font-size:13px;color:var(--tx3);line-height:1.6}
+
+/* STATS */
+.stats-bar{padding:72px 0;background:linear-gradient(135deg,var(--pri),#162240);position:relative;overflow:hidden}
+.stats-bar::before{content:'';position:absolute;top:-50%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.12),transparent 70%)}
+.stats-bar .sec-title{color:#fff}.stats-bar .sec-desc{color:rgba(255,255,255,.5)}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;position:relative;z-index:1}
+.stat-item{text-align:center}
+.stat-num{font-size:clamp(32px,4vw,48px);font-weight:900;color:var(--acc);font-family:"Inter",sans-serif;line-height:1.2}
+.stat-num small{font-size:.4em;color:rgba(232,212,139,.7);margin-left:2px}
+.stat-label{font-size:13px;color:rgba(255,255,255,.55);margin-top:6px;font-weight:500}
+
+/* RD */
+.rd-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.rd-item{display:flex;gap:16px;padding:20px;border-radius:var(--r);border:1px solid var(--bd);transition:var(--tr);margin-bottom:16px;background:var(--bg2)}
+.rd-item:hover{border-color:var(--pri);box-shadow:0 4px 16px rgba(11,61,145,.08)}
+.rd-num{width:40px;height:40px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center}
+.rd-item h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.rd-item p{font-size:13px;color:var(--tx3);line-height:1.6}
+.rd-visual{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rd-card{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:36px;color:#fff;transition:var(--tr)}
+.rd-card:hover{transform:scale(1.02)}
+.rd-card.rc1{background:linear-gradient(135deg,#0F3460,#16213E)}
+.rd-card.rc2{background:linear-gradient(135deg,#1A2744,#2C3333)}
+.rd-card.rc3{background:linear-gradient(135deg,#162447,#1F4068);grid-column:span 2;aspect-ratio:2/1}
+
+/* HONORS */
+.honors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.honor-card{text-align:center;padding:28px 14px;border-radius:var(--r);background:var(--bg2);border:1px solid var(--bd);transition:var(--tr)}
+.honor-card:hover{transform:translateY(-4px);box-shadow:var(--sh2);border-color:var(--acc)}
+.honor-icon{width:52px;height:52px;border-radius:50%;margin:0 auto 14px;background:var(--acc3);display:flex;align-items:center;justify-content:center;font-size:24px}
+.honor-card h4{font-size:13px;font-weight:700;color:var(--tx2);line-height:1.4}
+
+/* NEWS */
+.news-layout{display:grid;grid-template-columns:2fr 1fr;gap:28px}
+.news-list{display:flex;flex-direction:column;gap:16px}
+.news-card{display:flex;gap:20px;padding:22px;border-radius:var(--r);background:var(--bg2);border:1px solid var(--bd);transition:var(--tr);cursor:pointer}
+.news-card:hover{border-color:var(--pri);box-shadow:var(--sh);transform:translateX(4px)}
+.news-date{flex-shrink:0;width:64px;text-align:center;padding:10px;border-radius:var(--r);background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff}
+.news-date .day{font-size:24px;font-weight:900;font-family:"Inter",sans-serif;line-height:1.2}
+.news-date .mon{font-size:11px;opacity:.75}
+.news-card h4{font-size:14px;font-weight:600;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-tag{display:inline-block;padding:2px 8px;border-radius:var(--rf);background:var(--pri3);color:var(--pri);font-size:11px;font-weight:600;margin-bottom:6px}
+.news-side{display:flex;flex-direction:column;gap:20px}
+.side-card{padding:24px;border-radius:var(--r);background:linear-gradient(135deg,var(--pri),#162240);color:#fff}
+.side-card h4{font-size:15px;font-weight:700;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1)}
+.side-card p{font-size:14px;line-height:1.8;opacity:.75}
+.hotline{text-align:center;padding:28px;border-radius:var(--r);background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
+.hotline .icon{font-size:28px;margin-bottom:8px}
+.hotline .num{font-size:26px;font-weight:900;font-family:"Inter",sans-serif;letter-spacing:1px;margin-bottom:4px}
+.hotline p{font-size:13px;font-weight:600;opacity:.85}
+
+/* CONTACT */
+.contact{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.contact-info h3{font-size:28px;font-weight:900;margin-bottom:16px}
+.contact-info h3 span{color:var(--pri)}
+.contact-info>p{color:var(--tx3);line-height:1.8;margin-bottom:32px}
+.info-list{display:flex;flex-direction:column;gap:20px}
+.info-item{display:flex;align-items:flex-start;gap:14px}
+.info-icon{width:42px;height:42px;border-radius:12px;flex-shrink:0;background:var(--pri3);display:flex;align-items:center;justify-content:center;font-size:18px}
+.info-item h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.info-item p{font-size:14px;color:var(--tx3)}
+.contact-form{padding:32px;border-radius:var(--rl);background:var(--bg);border:1px solid var(--bd);box-shadow:var(--sh)}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:14px;font-weight:600;margin-bottom:6px;color:var(--tx2)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;border-radius:var(--r);background:var(--bg2);border:1px solid var(--bd);color:var(--tx);font-size:14px;font-family:inherit;transition:var(--tr)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px var(--pri3)}
+.form-group textarea{height:90px;resize:vertical}
+.form-group select option{background:var(--bg2)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-submit{width:100%;padding:14px;border-radius:var(--r);background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-weight:700;font-size:15px;border:none;cursor:pointer;transition:var(--tr)}
+.form-submit:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(11,61,145,.3)}
+
+/* FOOTER */
+.footer{background:var(--bg3);padding:48px 0 0;border-top:1px solid var(--bd)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--bd)}
+.footer-brand .flogo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.footer-brand .flogo .logo-icon{width:32px;height:32px;font-size:14px}
+.footer-brand .flogo span{font-size:15px;font-weight:700}
+.footer-brand p{font-size:14px;color:var(--tx3);line-height:1.8;margin-bottom:16px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:34px;height:34px;border-radius:50%;background:var(--bg2);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:14px;transition:var(--tr)}
+.footer-social a:hover{background:var(--pri);border-color:var(--pri);color:#fff}
+.footer-col h4{font-size:14px;font-weight:700;margin-bottom:16px}
+.footer-col li{margin-bottom:8px}
+.footer-col a{font-size:13px;color:var(--tx3);transition:var(--tr)}
+.footer-col a:hover{color:var(--pri)}
+.footer-bottom{padding:20px 0;text-align:center;font-size:12px;color:var(--tx3)}
+
+/* BACK TO TOP */
+.btt{position:fixed;bottom:28px;right:28px;z-index:999;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font-size:18px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(16px);transition:var(--tr);box-shadow:0 4px 16px rgba(11,61,145,.3)}
+.btt.show{opacity:1;visibility:visible;transform:translateY(0)}
+.btt:hover{transform:translateY(-2px)}
+
+/* TOAST */
+.toast{position:fixed;top:90px;right:28px;z-index:9999;padding:14px 22px;border-radius:var(--r);background:var(--bg2);color:var(--tx);font-size:14px;font-weight:500;box-shadow:var(--sh2);opacity:0;transform:translateX(100%);transition:var(--tr);border-left:4px solid var(--gn)}
+.toast.show{opacity:1;transform:translateX(0)}
+
+/* FADE IN */
+.fade{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fade-left{opacity:0;transform:translateX(-28px);transition:opacity .6s ease,transform .6s ease}
+.fade-right{opacity:0;transform:translateX(28px);transition:opacity .6s ease,transform .6s ease}
+.fade.v,.fade-left.v,.fade-right.v{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{order:-1}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .apps-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-grid{grid-template-columns:repeat(3,1fr)}
+  .honors-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .mob-btn{display:block}
+  .hero{padding:110px 0 60px}
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:12px}
+  .about-grid,.rd-grid,.contact-grid,.news-layout{grid-template-columns:1fr;gap:32px}
+  .products-grid,.apps-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .honors-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  section{padding:60px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#" class="logo">
+      <div class="logo-icon">&#9881;</div>
+      湖北金龙<span>新材料</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">关于金龙</a>
+      <a href="#products">核心产品</a>
+      <a href="#apps">应用领域</a>
+      <a href="#rd">研发实力</a>
+      <a href="#honors">荣誉资质</a>
+      <a href="#news">新闻动态</a>
+      <a href="#contact">联系我们</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" title="切换主题">&#127769;</button>
+      <a href="#contact" class="nav-cta">获取报价</a>
+      <button class="mob-btn" id="mobBtn">&#9776;</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">&#9733; 国家级高新技术企业 &middot; 专精特新小巨人</div>
+        <h1>专注<em>高分子纺织涂覆材料</em><br>引领行业未来</h1>
+        <p>湖北金龙新材料股份有限公司，深耕行业十余年，集研发、生产、销售于一体，年产各类篷盖材料及工业用布超3亿平方米，产品远销全球20余个国家。</p>
+        <div class="hero-btns">
+          <a href="#products" class="btn-p">查看产品 &#8594;</a>
+          <a href="#about" class="btn-o">了解详情</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-cards">
+          <div class="hcard"><div class="num">16<small>亿+</small></div><div class="label">年产值</div></div>
+          <div class="hcard"><div class="num">50<small>条+</small></div><div class="label">生产线</div></div>
+          <div class="hcard"><div class="num">3<small>亿&#13217;</small></div><div class="label">年产能</div></div>
+          <div class="hcard"><div class="num">2000<small>万$</small></div><div class="label">年出口额</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="sn">30<small>%+</small></div><div class="sl">市场占有率</div></div>
+      <div class="hstat"><div class="sn">27<small>省</small></div><div class="sl">销售覆盖</div></div>
+      <div class="hstat"><div class="sn">20<small>国+</small></div><div class="sl">出口国家</div></div>
+      <div class="hstat"><div class="sn">15<small>年+</small></div><div class="sl">行业深耕</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>专精特新小巨人企业</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>ISO9001质量管理体系</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>ISO14001环境管理体系</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>CRCC铁路产品认证</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>军队保密资质</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>武器装备科研承制认证</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>AAA信用等级</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>隐形冠军示范企业</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>智能制造示范企业</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>CCTV品牌强国工程</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>省级守合同重信用企业</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>国家民政部救援物资储备基地</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>专精特新小巨人企业</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>ISO9001质量管理体系</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>ISO14001环境管理体系</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>CRCC铁路产品认证</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>军队保密资质</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>武器装备科研承制认证</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>AAA信用等级</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>隐形冠军示范企业</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>智能制造示范企业</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>CCTV品牌强国工程</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>省级守合同重信用企业</div>
+    <div class="mq-item"><div class="mq-icon">&#10022;</div>国家民政部救援物资储备基地</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="sec-head fade"><div class="sec-tag">ABOUT JINLONG</div><h2 class="sec-title">关于湖北金龙</h2><p class="sec-desc">立足华中，放眼全球，致力打造全国最大的软体材料产业集群</p></div>
+    <div class="about-grid">
+      <div class="about-img fade-left">
+        <div class="about-img-inner">
+          <div class="icon">&#127981;</div>
+          <h3>四大产业园区</h3>
+          <p>占地1000余亩 &middot; 建筑面积50万&#13217;</p>
+        </div>
+      </div>
+      <div class="about-text fade-right">
+        <h3>专心专业专一<br>做好「一块布」</h3>
+        <p>湖北金龙新材料股份有限公司坐落于中国专用汽车之都——湖北省随州市，是一家集高分子纺织涂覆材料研发、生产、销售、售后服务于一体的国家级高新技术企业。</p>
+        <p>公司拥有四大产业园区、50余条生产线，年产各类篷盖材料、工业用布、装饰广告材料超3亿平方米。「飞天金龙」品牌成功入选CCTV品牌强国工程，篷盖材料市场占有率超30%，产品覆盖全国27个省市自治区，远销中东、东南亚、欧洲等二十余个国家。</p>
+        <div class="about-features">
+          <div class="about-feat"><div class="af-icon">&#128295;</div>50余条生产线</div>
+          <div class="about-feat"><div class="af-icon">&#127758;</div>出口20+国家</div>
+          <div class="about-feat"><div class="af-icon">&#127959;</div>民政部储备基地</div>
+          <div class="about-feat"><div class="af-icon">&#127942;</div>省级实验室</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="sec-head fade"><div class="sec-tag">CORE PRODUCTS</div><h2 class="sec-title">六大核心产品系列</h2><p class="sec-desc">覆盖交通、应急、军工、建筑、农业、工业等多领域应用场景</p></div>
+    <div class="products-grid">
+      <div class="prod-card fade">
+        <div class="prod-img pi1">&#128666;<div class="prod-badge">明星产品</div></div>
+        <div class="prod-body"><h4>工业篷盖材料</h4><p>高性能篷盖布、铁路专用篷布，耐磨耐候，市场占有率超30%。</p><div class="prod-tags"><span>铁路运输</span><span>仓储物流</span><span>港口码头</span></div></div>
+      </div>
+      <div class="prod-card fade">
+        <div class="prod-img pi2">&#127963;</div>
+        <div class="prod-body"><h4>建筑膜材</h4><p>篷房膜材、建筑结构用膜材，行业首创六米超宽幅多功能涂层工艺。</p><div class="prod-tags"><span>体育场馆</span><span>商业空间</span><span>临时建筑</span></div></div>
+      </div>
+      <div class="prod-card fade">
+        <div class="prod-img pi3">&#127754;</div>
+        <div class="prod-body"><h4>充气材料</h4><p>高闭气性软化材料，气密性优异，适用于各类充气结构。</p><div class="prod-tags"><span>水上运动</span><span>应急救援</span><span>军事应用</span></div></div>
+      </div>
+      <div class="prod-card fade">
+        <div class="prod-img pi4">&#128737;</div>
+        <div class="prod-body"><h4>军用蓬盖材料</h4><p>国防军车蓬盖材料，通过军队保密资质和武器装备科研承制认证。</p><div class="prod-tags"><span>国防军工</span><span>武器装备</span><span>军民融合</span></div></div>
+      </div>
+      <div class="prod-card fade">
+        <div class="prod-img pi5">&#127912;</div>
+        <div class="prod-body"><h4>广告装饰材料</h4><p>PVC膜、灯箱布、喷绘布、刀刮布等全品类广告材料。</p><div class="prod-tags"><span>户外广告</span><span>灯箱标识</span><span>展览展示</span></div></div>
+      </div>
+      <div class="prod-card fade">
+        <div class="prod-img pi6">&#127806;</div>
+        <div class="prod-body"><h4>农牧养殖材料</h4><p>新型农牧养殖用柔性复合材料，助力现代农业产业升级。</p><div class="prod-tags"><span>设施农业</span><span>畜牧养殖</span><span>水产养殖</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section class="apps" id="apps">
+  <div class="container">
+    <div class="sec-head fade"><div class="sec-tag">APPLICATIONS</div><h2 class="sec-title">八大应用领域</h2><p class="sec-desc">从军工应急到文体民生，金龙材料无处不在</p></div>
+    <div class="apps-grid">
+      <div class="app-card fade"><div class="app-icon ai1">&#128737;</div><h4>军工国防</h4><p>军用篷盖、伪装屏蔽材料</p></div>
+      <div class="app-card fade"><div class="app-icon ai2">&#128680;</div><h4>应急救援</h4><p>救灾帐篷、应急物资储备</p></div>
+      <div class="app-card fade"><div class="app-icon ai3">&#128644;</div><h4>交通运输</h4><p>铁路篷布、货运加固器材</p></div>
+      <div class="app-card fade"><div class="app-icon ai4">&#127959;</div><h4>建筑工程</h4><p>建筑膜材、篷房材料</p></div>
+      <div class="app-card fade"><div class="app-icon ai5">&#127806;</div><h4>现代农业</h4><p>温室覆盖、养殖围护</p></div>
+      <div class="app-card fade"><div class="app-icon ai6">&#127981;</div><h4>工业制造</h4><p>工业用布、耐磨材料</p></div>
+      <div class="app-card fade"><div class="app-icon ai7">&#127973;</div><h4>医疗卫生</h4><p>洁净材料、防护原材料</p></div>
+      <div class="app-card fade"><div class="app-icon ai8">&#9917;</div><h4>文体装备</h4><p>体育场馆膜材、运动器材</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="sec-head fade"><div class="sec-tag" style="background:rgba(251,191,36,.12);color:var(--acc)">DATA OVERVIEW</div><h2 class="sec-title">核心数据一览</h2></div>
+    <div class="stats-grid">
+      <div class="stat-item fade"><div class="stat-num"><span class="counter" data-target="30">0</span><small>%+</small></div><div class="stat-label">篷盖材料市场占有率</div></div>
+      <div class="stat-item fade"><div class="stat-num"><span class="counter" data-target="27">0</span><small>省</small></div><div class="stat-label">全国销售覆盖</div></div>
+      <div class="stat-item fade"><div class="stat-num"><span class="counter" data-target="20">0</span><small>国+</small></div><div class="stat-label">产品出口国家</div></div>
+      <div class="stat-item fade"><div class="stat-num"><span class="counter" data-target="4">0</span><small>大</small></div><div class="stat-label">产业园区</div></div>
+      <div class="stat-item fade"><div class="stat-num"><span class="counter" data-target="8799">0</span><small>万</small></div><div class="stat-label">注册资金</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- R&D -->
+<section id="rd">
+  <div class="container">
+    <div class="sec-head fade"><div class="sec-tag">R&amp;D INNOVATION</div><h2 class="sec-title">研发与创新</h2><p class="sec-desc">自建省级重点实验室，与多所知名高校产学研深度合作</p></div>
+    <div class="rd-grid">
+      <div class="fade-left">
+        <div class="rd-item"><div class="rd-num">01</div><div><h4>碳纤维产业</h4><p>布局碳纤维材料研发，拓展高性能纤维复合材料新赛道</p></div></div>
+        <div class="rd-item"><div class="rd-num">02</div><div><h4>国防伪装屏蔽材料</h4><p>开发新型伪装屏蔽技术，服务国防现代化建设</p></div></div>
+        <div class="rd-item"><div class="rd-num">03</div><div><h4>六米超宽幅涂层工艺</h4><p>行业首创工艺，投放市场近8年未被同行模仿</p></div></div>
+        <div class="rd-item"><div class="rd-num">04</div><div><h4>软体材料深加工</h4><p>各类软体材料制成品深加工，延伸产业链价值</p></div></div>
+      </div>
+      <div class="rd-visual fade-right">
+        <div class="rd-card rc1">&#128300;</div>
+        <div class="rd-card rc2">&#9881;</div>
+        <div class="rd-card rc3">&#128218;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONORS -->
+<section class="honors" id="honors" style="background:var(--bg2)">
+  <div class="container">
+    <div class="sec-head fade"><div class="sec-tag">HONORS</div><h2 class="sec-title">荣誉资质</h2><p class="sec-desc">载誉前行，以品质赢得市场和社会的广泛认可</p></div>
+    <div class="honors-grid">
+      <div class="honor-card fade"><div class="honor-icon">&#127942;</div><h4>专精特新小巨人企业</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#129351;</div><h4>隐形冠军示范企业</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#9881;</div><h4>智能制造示范企业</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#128250;</div><h4>CCTV品牌强国工程</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#128220;</div><h4>湖北省著名商标</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#129309;</div><h4>AAA信用等级</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#127894;</div><h4>军队保密资质</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#128738;</div><h4>CRCC铁路产品认证</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#128208;</div><h4>ISO三大体系认证</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#128171;</div><h4>湖北省优秀民营企业</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#128176;</div><h4>诚信纳税企业</h4></div>
+      <div class="honor-card fade"><div class="honor-icon">&#9733;</div><h4>湖北精品</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="container">
+    <div class="sec-head fade"><div class="sec-tag">NEWS</div><h2 class="sec-title">新闻动态</h2><p class="sec-desc">关注金龙最新资讯，了解行业前沿动态</p></div>
+    <div class="news-layout">
+      <div class="news-list">
+        <div class="news-card fade"><div class="news-date"><div class="day">27</div><div class="mon">2026-04</div></div><div><span class="news-tag">公司要闻</span><h4>市委书记马泽江赴湖北金龙调研 指导鼓励企业攻坚核心技术 培育新质生产力</h4></div></div>
+        <div class="news-card fade"><div class="news-date"><div class="day">24</div><div class="mon">2026-04</div></div><div><span class="news-tag">技术突破</span><h4>功能型柔性复合材料与先进制造技术湖北省重点实验室在湖北金龙隆重揭牌</h4></div></div>
+        <div class="news-card fade"><div class="news-date"><div class="day">08</div><div class="mon">2026-04</div></div><div><span class="news-tag">管理活动</span><h4>金龙亮剑&middot;勇攀高峰——湖北金龙成功举办2026年第一季度绩效PK大赛</h4></div></div>
+        <div class="news-card fade"><div class="news-date"><div class="day">07</div><div class="mon">2026-04</div></div><div><span class="news-tag">企业动态</span><h4>承压攻坚破困局&middot;聚力冲刺保半年——湖北金龙隆重召开一季度工作总结暨二季度部署动员会</h4></div></div>
+      </div>
+      <div class="news-side">
+        <div class="side-card fade"><h4>&#127775; 企业愿景</h4><p>创百亿强企、建百年老企。立足华中，致力打造成为全国领先的高分子纺织涂覆材料生产销售企业，建设全国最大的软体材料产业集群。</p></div>
+        <div class="hotline fade"><div class="icon">&#128222;</div><div class="num">0722-4892968</div><p>24小时服务热线</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="sec-head fade"><div class="sec-tag">CONTACT US</div><h2 class="sec-title">联系我们</h2><p class="sec-desc">期待与您携手，共创美好未来</p></div>
+    <div class="contact-grid">
+      <div class="contact-info fade-left">
+        <h3>携手<span>金龙</span><br>共赢未来</h3>
+        <p>无论您是需要产品咨询、技术支持还是商务合作，我们的专业团队随时为您提供优质服务。</p>
+        <div class="info-list">
+          <div class="info-item"><div class="info-icon">&#128205;</div><div><h4>公司地址</h4><p>湖北省随州市曾都区迎宾大道南2号金龙工业园</p></div></div>
+          <div class="info-item"><div class="info-icon">&#128222;</div><div><h4>服务热线</h4><p>0722-4892968（24小时）</p></div></div>
+          <div class="info-item"><div class="info-icon">&#128231;</div><div><h4>官方网站</h4><p>www.hbjlong.com</p></div></div>
+          <div class="info-item"><div class="info-icon">&#128338;</div><div><h4>工作时间</h4><p>周一至周六 8:00 - 17:30</p></div></div>
+        </div>
+      </div>
+      <div class="contact-form fade-right">
+        <div class="form-group"><label>您的姓名</label><input type="text" placeholder="请输入您的姓名" id="fname"></div>
+        <div class="form-row">
+          <div class="form-group"><label>联系电话</label><input type="tel" placeholder="请输入您的电话" id="fphone"></div>
+          <div class="form-group"><label>公司名称</label><input type="text" placeholder="请输入公司名称" id="fcompany"></div>
+        </div>
+        <div class="form-group"><label>意向产品</label><select id="fproduct"><option value="">请选择意向产品</option><option>工业篷盖材料</option><option>建筑膜材</option><option>充气材料</option><option>军用蓬盖材料</option><option>广告装饰材料</option><option>农牧养殖材料</option><option>其他</option></select></div>
+        <div class="form-group"><label>留言内容</label><textarea placeholder="请描述您的需求..." id="fmsg"></textarea></div>
+        <button class="form-submit" id="submitBtn">提交询价</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="flogo"><div class="logo-icon">&#9881;</div><span>湖北金龙新材料</span></div>
+        <p>专心专业专一做好「一块布」，致力成为全国领先的高分子纺织涂覆材料生产销售企业。</p>
+        <div class="footer-social"><a href="#" title="微信">&#128172;</a><a href="#" title="微博">&#127760;</a><a href="#" title="邮箱">&#9993;</a></div>
+      </div>
+      <div class="footer-col"><h4>关于金龙</h4><ul><li><a href="#about">公司简介</a></li><li><a href="#">董事长致辞</a></li><li><a href="#">组织架构</a></li><li><a href="#honors">资质荣誉</a></li></ul></div>
+      <div class="footer-col"><h4>产品中心</h4><ul><li><a href="#products">工业篷盖材料</a></li><li><a href="#products">建筑膜材</a></li><li><a href="#products">充气材料</a></li><li><a href="#products">广告装饰材料</a></li></ul></div>
+      <div class="footer-col"><h4>客户服务</h4><ul><li><a href="#contact">联系我们</a></li><li><a href="#contact">在线留言</a></li><li><a href="#">常见问题</a></li><li><a href="#">法律声明</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">Copyright &copy; 2024 湖北金龙新材料股份有限公司 &nbsp;|&nbsp; 鄂ICP备13013496号-8</div>
+  </div>
+</footer>
+
+<button class="btt" id="btt">&#8593;</button>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  // Theme toggle
+  var btn=document.getElementById('themeBtn');
+  var html=document.documentElement;
+  var saved=localStorage.getItem('jl-theme')||'light';
+  html.setAttribute('data-theme',saved);
+  btn.innerHTML=saved==='dark'?'&#9728;':'&#127769;';
+  btn.onclick=function(){
+    var next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+    html.setAttribute('data-theme',next);
+    localStorage.setItem('jl-theme',next);
+    btn.innerHTML=next==='dark'?'&#9728;':'&#127769;';
+  };
+
+  // Navbar scroll
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('scrolled',window.scrollY>50);
+  });
+
+  // Back to top
+  var btt=document.getElementById('btt');
+  window.addEventListener('scroll',function(){
+    btt.classList.toggle('show',window.scrollY>500);
+  });
+  btt.onclick=function(){window.scrollTo({top:0,behavior:'smooth'})};
+
+  // Counter animation
+  var counters=document.querySelectorAll('.counter');
+  var counted=false;
+  function animateCounters(){
+    if(counted)return;counted=true;
+    counters.forEach(function(c){
+      var target=parseInt(c.getAttribute('data-target'));
+      var start=0;var duration=2000;var step=target/(duration/16);
+      function tick(){
+        start+=step;
+        if(start>=target){c.textContent=target;return}
+        c.textContent=Math.floor(start);
+        requestAnimationFrame(tick);
+      }
+      tick();
+    });
+  }
+  var statsEl=document.querySelector('.stats-grid');
+  if(statsEl){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting)animateCounters()});
+    },{threshold:0.3});
+    obs.observe(statsEl);
+  }
+
+  // Fade in on scroll
+  var fades=document.querySelectorAll('.fade,.fade-left,.fade-right');
+  var fadeObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('v');fadeObs.unobserve(e.target)}
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  fades.forEach(function(el){fadeObs.observe(el)});
+
+  // Form submit
+  var submit=document.getElementById('submitBtn');
+  var toast=document.getElementById('toast');
+  submit.onclick=function(){
+    var n=document.getElementById('fname').value;
+    var p=document.getElementById('fphone').value;
+    if(!n||!p){
+      toast.textContent='请填写姓名和联系电话';
+      toast.className='toast show';
+      setTimeout(function(){toast.className='toast'},3000);
+      return;
+    }
+    toast.textContent='询价已提交成功！我们将尽快与您联系。';
+    toast.className='toast show';
+    submit.textContent='提交成功';submit.disabled=true;
+    setTimeout(function(){toast.className='toast'},4000);
+  };
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('.nav-links a, .nav-cta').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var href=this.getAttribute('href');
+      if(href&&href.startsWith('#')){
+        e.preventDefault();
+        var t=document.querySelector(href);
+        if(t)t.scrollIntoView({behavior:'smooth'});
+      }
+    });
+  });
+
+  // Mobile menu
+  var mobBtn=document.getElementById('mobBtn');
+  var navLinks=document.getElementById('navLinks');
+  if(mobBtn&&navLinks){
+    mobBtn.onclick=function(){
+      if(navLinks.style.display==='flex'){
+        navLinks.style.display='none';
+      }else{
+        navLinks.style.display='flex';
+        navLinks.style.position='absolute';
+        navLinks.style.top='68px';
+        navLinks.style.left='0';
+        navLinks.style.right='0';
+        navLinks.style.flexDirection='column';
+        navLinks.style.background='var(--bg2)';
+        navLinks.style.padding='16px 24px';
+        navLinks.style.gap='8px';
+        navLinks.style.borderBottom='1px solid var(--bd)';
+        navLinks.style.boxShadow='var(--sh2)';
+      }
+    };
+  }
+})();
+</script>
+</body>
+</html>
