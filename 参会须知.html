@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>参会须知</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", sans-serif;
+    background: #f0eef5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  /* 9:16 比例容器 */
+  .card {
+    width: min(450px, 90vw);
+    aspect-ratio: 9 / 16;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(52, 0, 127, 0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #34007F 0%, #5B21B6 50%, #7C3AED 100%);
+    padding: 28px 24px 20px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .header .logo {
+    width: auto;
+    height: 36px;
+    margin-bottom: 12px;
+    object-fit: contain;
+  }
+  .header::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -30px;
+    width: 140px;
+    height: 140px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    right: -15px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .header .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 4px;
+  }
+  .header .sub {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-top: 8px;
+  }
+
+  /* Body */
+  .body {
+    flex: 1;
+    padding: 22px 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    overflow-y: auto;
+  }
+
+  /* Section */
+  .section { flex-shrink: 0; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .section-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+  .section-icon.orange { background: #FFF3E0; }
+  .section-icon.purple { background: #F3E8FF; }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: 1px;
+  }
+
+  /* Items (自备提醒) */
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    margin-bottom: 7px;
+    border-radius: 10px;
+    border-left: 3px solid transparent;
+  }
+  .item.orange { border-left-color: #F59E0B; background: #FFFBF0; }
+  .item-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .item-num.orange { background: #F59E0B; }
+  .item-text {
+    flex: 1;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.55;
+  }
+  .item-text strong { color: #1a1a2e; }
+  .item-text .hint {
+    display: block;
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #EDE5F5, transparent);
+    margin: 4px 0;
+  }
+
+  /* Tags grid (为您准备) */
+  .tags-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .tag-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .tag-item:nth-child(odd) { background: linear-gradient(135deg, #7C3AED, #5B21B6); }
+  .tag-item:nth-child(even) { background: linear-gradient(135deg, #5B21B6, #34007F); }
+  .tag-emoji { font-size: 15px; }
+
+  /* Footer */
+  .footer {
+    background: #34007F;
+    padding: 18px 24px;
+    text-align: center;
+    color: rgba(255,255,255,0.85);
+    font-size: 12px;
+    line-height: 1.75;
+    flex-shrink: 0;
+  }
+  .footer .date {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  /* Contact line in footer */
+  .footer .contact-line {
+    display: none;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 12.5px;
+    color: #fff;
+  }
+  .footer .contact-line.visible { display: block; }
+
+  /* Controls panel - outside card */
+  .controls {
+    margin-top: 14px;
+    width: min(450px, 90vw);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .controls input[type="text"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #EDE5F5;
+    border-radius: 10px;
+    font-size: 13.5px;
+    outline: none;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    transition: border-color 0.2s;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  .controls input::placeholder { color: #bbb; }
+  .controls input:focus { border-color: #7C3AED; }
+
+  .time-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .time-group label {
+    font-size: 12.5px;
+    color: #888;
+    white-space: nowrap;
+  }
+  .time-group input[type="date"] {
+    flex: 1.2;
+    min-width: 0;
+    padding: 8px 10px;
+    border: 1.5px solid #EDE5F5;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: #fff;
+    color: #333;
+  }
+  .time-group input[type="time"] {
+    flex: 0.8;
+    min-width: 0;
+    padding: 8px 8px;
+    border: 1.5px solid #EDE5F5;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: #fff;
+    color: #333;
+  }
+  .time-group input:focus { border-color: #7C3AED; }
+
+  /* Color picker row */
+  .color-row {
+    margin-top: 16px;
+    width: min(450px, 90vw);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .color-row .label {
+    font-size: 13px;
+    color: #666;
+    font-weight: 600;
+    margin-right: 2px;
+    white-space: nowrap;
+  }
+  .color-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .color-btn:hover { transform: scale(1.15); }
+  .color-btn.active { border-color: #333; box-shadow: 0 0 0 2px rgba(0,0,0,0.1); }
+
+  /* Download bar - outside the card */
+  .download-bar {
+    margin-top: 14px;
+    width: min(450px, 90vw);
+    text-align: center;
+  }
+  .download-bar button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #5B21B6, #7C3AED);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(91, 33, 182, 0.35);
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  }
+  .download-bar button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(91, 33, 182, 0.5);
+  }
+  .download-bar button:active { transform: translateY(0); }
+  .download-bar button:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+  /* Tag delete button */
+  .tag-item { position: relative; }
+  .tag-del {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ef4444;
+    color: #fff;
+    font-size: 11px;
+    line-height: 18px;
+    text-align: center;
+    cursor: pointer;
+    display: none;
+    z-index: 2;
+  }
+  .tag-item:hover .tag-del { display: block; }
+  .tag-del:hover { background: #b91c1c; }
+
+  /* Tag add row */
+  .tag-add-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    align-items: center;
+  }
+  .tag-add-row input[type="text"] {
+    padding: 8px 12px;
+    border: 1.5px solid #E9D5FF;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: #fff;
+  }
+  .tag-add-row input:focus { border-color: #7C3AED; }
+  .tag-add-row input#inputEmoji { width: 60px; text-align: center; }
+  .tag-add-row input#inputTagName { flex: 1; min-width: 0; }
+  .tag-add-row button {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #7C3AED, #5B21B6);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tag-add-row button:hover { transform: translateY(-1px); box-shadow: 0 3px 12px rgba(91,33,182,0.35); }
+  .tag-add-row button:hover { transform: translateY(0); }
+
+  /* no-capture: hidden when downloading */
+  .no-capture { display: flex !important; }
+  .capture-hide { display: none !important; }
+
+  /* Emoji picker */
+  .emoji-btn {
+    padding: 8px 14px;
+    border: 1.5px solid #E9D5FF;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    flex-shrink: 0;
+  }
+  .emoji-btn:hover { border-color: #7C3AED; }
+  .emoji-picker {
+    display: none;
+    position: absolute;
+    bottom: 44px;
+    left: 0;
+    width: 280px;
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    z-index: 100;
+    overflow: hidden;
+  }
+  .emoji-picker.visible { display: block; }
+  .emoji-picker-header {
+    padding: 8px 12px;
+    font-size: 12px;
+    color: #666;
+    border-bottom: 1px solid #F3F4F6;
+    background: #FAFAFA;
+  }
+  .emoji-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 8px;
+    max-height: 180px;
+    overflow-y: auto;
+  }
+  .emoji-list span {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .emoji-list span:hover { background: #F3E8FF; }
+  .emoji-list span.active { background: #EDE5F5; }
+
+  /* Add button (tag-add-row) */
+  .tag-add-row {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    width: min(450px, 90vw);
+    align-items: center;
+  }
+  .tag-add-row input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 12px;
+    border: 1.5px solid #E9D5FF;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: #fff;
+  }
+  .tag-add-row input:focus { border-color: #7C3AED; }
+  .tag-add-row .add-btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #7C3AED, #5B21B6);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tag-add-row .add-btn:hover { transform: translateY(-1px); box-shadow: 0 3px 12px rgba(91,33,182,0.35); }
+  .tag-add-row .add-btn:active { transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- Card: only this part gets captured -->
+<div class="card" id="captureArea">
+
+  <!-- Header -->
+  <div class="header">
+    <img src="logo.png" class="logo" alt="随州网·随州招聘网">
+    <div class="tag" id="cardTag">AI 工具应用培训课 · 第三期</div>
+    <h1>参 会 须 知</h1>
+    <div class="sub" id="cardSub">2026.06.13 周六 &nbsp; 8:30 - 18:00</div>
+  </div>
+
+  <div class="body">
+
+    <!-- 自备提醒 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon orange">⚠️</div>
+        <div class="section-title">自备提醒</div>
+      </div>
+
+      <div class="item orange">
+        <div class="item-num orange">1</div>
+        <div class="item-text">
+          <strong>必须自带电脑</strong>
+          <span class="hint">系统要求：macOS 12.0+ 或 Windows 10+</span>
+        </div>
+      </div>
+
+      <div class="item orange">
+        <div class="item-num orange">2</div>
+        <div class="item-text">
+          <strong>建议携带所在行业素材</strong>（图片、表格数据等）
+          <span class="hint">实操效果更好，不带也没关系，我们准备了学员素材包</span>
+        </div>
+      </div>
+
+      <div class="item orange">
+        <div class="item-num orange">3</div>
+        <div class="item-text">
+          <strong>全天开空调，建议带件外套</strong>
+          <span class="hint">午休时间可以搭盖保暖，女同胞们注意哦～</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 我们为您准备 -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon purple">🎁</div>
+        <div class="section-title">我们为您准备</div>
+      </div>
+
+      <div class="tags-grid" id="tagsGrid">
+        <div class="tag-item" data-theme-index="0" data-emoji="📓">📓 本子 + 笔<span class="tag-del" onclick="removeTag(this)">✕</span></div>
+        <div class="tag-item" data-theme-index="1" data-emoji="💧">💧 矿泉水<span class="tag-del" onclick="removeTag(this)">✕</span></div>
+        <div class="tag-item" data-theme-index="2" data-emoji="🍎">🍎 水果<span class="tag-del" onclick="removeTag(this)">✕</span></div>
+        <div class="tag-item" data-theme-index="3" data-emoji="🍱">🍱 午餐<span class="tag-del" onclick="removeTag(this)">✕</span></div>
+        <div class="tag-item" data-theme-index="4" data-emoji="📁">📁 学员素材包<span class="tag-del" onclick="removeTag(this)">✕</span></div>
+        <div class="tag-item" data-theme-index="5" data-emoji="💬">💬 课后交流群<span class="tag-del" onclick="removeTag(this)">✕</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="date">海翼美岁天地3号楼二楼（随州网运营中心）</div>
+    <div id="contactLine" class="contact-line"></div>
+    <div class="other-line">有任何问题请随时联系现场工作人员 · 祝大家学有所获！</div>
+  </div>
+
+</div>
+
+<!-- Color picker -->
+<div class="color-row">
+  <span class="label">主题色：</span>
+  <div class="color-btn active" style="background: linear-gradient(135deg, #7C3AED, #34007F);" data-theme="purple" title="经典紫" onclick="setTheme('purple', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #2563EB, #1E3A8A);" data-theme="blue" title="商务蓝" onclick="setTheme('blue', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #06B6D4, #0E7490);" data-theme="cyan" title="清新青" onclick="setTheme('cyan', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #0EA5E9, #0369A1);" data-theme="sky" title="天空蓝" onclick="setTheme('sky', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #6366F1, #312E81);" data-theme="indigo" title="靛蓝" onclick="setTheme('indigo', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #8B5CF6, #4C1D95);" data-theme="violet" title="紫罗兰" onclick="setTheme('violet', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #EC4899, #9D174D);" data-theme="pink" title="粉色" onclick="setTheme('pink', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #F43F5E, #881337);" data-theme="rose" title="玫瑰红" onclick="setTheme('rose', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #10B981, #065F46);" data-theme="green" title="自然绿" onclick="setTheme('green', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #14B8A6, #134E4A);" data-theme="teal" title="墨绿" onclick="setTheme('teal', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #F59E0B, #92400E);" data-theme="amber" title="琥珀金" onclick="setTheme('amber', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #EF4444, #991B1B);" data-theme="red" title="热情红" onclick="setTheme('red', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #64748B, #1E293B);" data-theme="slate" title="石板灰" onclick="setTheme('slate', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #1a1a2e, #16213e);" data-theme="dark" title="沉稳黑" onclick="setTheme('dark', this)"></div>
+</div>
+
+<!-- Input controls -->
+<div class="controls">
+  <input type="text" id="inputTag" placeholder="课程标签（如：AI 工具应用培训课 · 第三期）" oninput="updateCardText()" value="AI 工具应用培训课 · 第三期">
+  <div class="time-group">
+    <label>日期</label>
+    <input type="date" id="inputDate" onchange="updateCardText()" value="2026-06-13">
+    <label>开始</label>
+    <input type="time" id="inputStartTime" onchange="updateCardText()" value="08:30">
+    <label>结束</label>
+    <input type="time" id="inputEndTime" onchange="updateCardText()" value="18:00">
+  </div>
+  <!-- Tag add row: inside controls, placed right after time-group -->
+  <div class="tag-add-row no-capture">
+    <button class="emoji-btn" onclick="toggleEmojiPicker()" type="button">&#x1F600; 选择Emoji</button>
+    <div class="emoji-picker" id="emojiPicker">
+      <div class="emoji-picker-header">选择 Emoji</div>
+      <div class="emoji-list" id="emojiList"></div>
+    </div>
+    <input type="text" id="inputTagName" placeholder="新增'为您准备'项目名称">
+    <button class="add-btn" onclick="addTag()">添加</button>
+  </div>
+
+  <input type="text" id="inputName" placeholder="联系人姓名（可选）" oninput="updateContact()">
+  <input type="text" id="inputPhone" placeholder="联系方式 手机/微信（可选）" oninput="updateContact()">
+</div>
+
+<!-- Download Button outside card, not captured -->
+<div class="download-bar">
+  <button onclick="downloadImage()" id="downloadBtn">
+    &#x2B07; 下载看板图片
+  </button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+const themes = {
+  purple: {
+    headerGrad: 'linear-gradient(135deg, #34007F 0%, #5B21B6 50%, #7C3AED 100%)',
+    footerBg: '#34007F',
+    tags: ['#7C3AED,#5B21B6','#7C3AED,#5B21B6','#5B21B6,#34007F','#5B21B6,#34007F','#34007F,#1a0040','#7C3AED,#5B21B6'],
+    iconBg: '#F3E8FF',
+    divider: '#EDE5F5',
+    shadow: 'rgba(52, 0, 127, 0.15)',
+    accent: '#7C3AED',
+    bodyBg: '#f0eef5'
+  },
+  blue: {
+    headerGrad: 'linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #3B82F6 100%)',
+    footerBg: '#1E3A8A',
+    tags: ['#3B82F6,#2563EB','#3B82F6,#2563EB','#2563EB,#1E3A8A','#2563EB,#1E3A8A','#1E3A8A,#172554','#3B82F6,#2563EB'],
+    iconBg: '#EFF6FF',
+    divider: '#DBEAFE',
+    shadow: 'rgba(30, 58, 138, 0.15)',
+    accent: '#2563EB',
+    bodyBg: '#EFF6FF'
+  },
+  cyan: {
+    headerGrad: 'linear-gradient(135deg, #0E7490 0%, #06B6D4 50%, #22D3EE 100%)',
+    footerBg: '#0E7490',
+    tags: ['#06B6D4,#0891B2','#06B6D4,#0891B2','#0891B2,#0E7490','#0891B2,#0E7490','#0E7490,#164E63','#06B6D4,#0891B2'],
+    iconBg: '#ECFEFF',
+    divider: '#CFFAFE',
+    shadow: 'rgba(14, 116, 144, 0.15)',
+    accent: '#06B6D4',
+    bodyBg: '#ECFEFF'
+  },
+  green: {
+    headerGrad: 'linear-gradient(135deg, #065F46 0%, #10B981 50%, #34D399 100%)',
+    footerBg: '#065F46',
+    tags: ['#10B981,#059669','#10B981,#059669','#059669,#065F46','#059669,#065F46','#065F46,#022C22','#10B981,#059669'],
+    iconBg: '#ECFDF5',
+    divider: '#A7F3D0',
+    shadow: 'rgba(6, 95, 70, 0.15)',
+    accent: '#10B981',
+    bodyBg: '#ECFDF5'
+  },
+  orange: {
+    headerGrad: 'linear-gradient(135deg, #B45309 0%, #F59E0B 50%, #FBBF24 100%)',
+    footerBg: '#B45309',
+    tags: ['#F59E0B,#D97706','#F59E0B,#D97706','#D97706,#B45309','#D97706,#B45309','#B45309,#78350F','#F59E0B,#D97706'],
+    iconBg: '#FFFBEB',
+    divider: '#FDE68A',
+    shadow: 'rgba(180, 83, 9, 0.15)',
+    accent: '#F59E0B',
+    bodyBg: '#FFFBEB'
+  },
+  red: {
+    headerGrad: 'linear-gradient(135deg, #991B1B 0%, #EF4444 50%, #F87171 100%)',
+    footerBg: '#991B1B',
+    tags: ['#EF4444,#DC2626','#EF4444,#DC2626','#DC2626,#991B1B','#DC2626,#991B1B','#991B1B,#7F1D1D','#EF4444,#DC2626'],
+    iconBg: '#FEF2F2',
+    divider: '#FECACA',
+    shadow: 'rgba(153, 27, 27, 0.15)',
+    accent: '#EF4444',
+    bodyBg: '#FEF2F2'
+  },
+  dark: {
+    headerGrad: 'linear-gradient(135deg, #16213e 0%, #1a1a2e 50%, #0f3460 100%)',
+    footerBg: '#16213e',
+    tags: ['#0f3460,#16213e','#0f3460,#16213e','#16213e,#1a1a2e','#16213e,#1a1a2e','#1a1a2e,#0f0f23','#0f3460,#16213e'],
+    iconBg: '#F0EDF5',
+    divider: '#D1D5DB',
+    shadow: 'rgba(26, 26, 46, 0.2)',
+    accent: '#0f3460',
+    bodyBg: '#F0EDF5'
+  },
+  indigo: {
+    headerGrad: 'linear-gradient(135deg, #312E81 0%, #4338CA 50%, #6366F1 100%)',
+    footerBg: '#312E81',
+    tags: ['#6366F1,#4338CA','#6366F1,#4338CA','#4338CA,#312E81','#4338CA,#312E81','#312E81,#1E1B4B','#6366F1,#4338CA'],
+    iconBg: '#EEF2FF',
+    divider: '#C7D2FE',
+    shadow: 'rgba(49, 46, 129, 0.15)',
+    accent: '#6366F1',
+    bodyBg: '#EEF2FF'
+  },
+  pink: {
+    headerGrad: 'linear-gradient(135deg, #9D174D 0%, #EC4899 50%, #F472B6 100%)',
+    footerBg: '#9D174D',
+    tags: ['#EC4899,#DB2777','#EC4899,#DB2777','#DB2777,#9D174D','#DB2777,#9D174D','#9D174D,#831843','#EC4899,#DB2777'],
+    iconBg: '#FDF2F8',
+    divider: '#FBCFE8',
+    shadow: 'rgba(157, 23, 77, 0.15)',
+    accent: '#EC4899',
+    bodyBg: '#FDF2F8'
+  },
+  teal: {
+    headerGrad: 'linear-gradient(135deg, #134E4A 0%, #14B8A6 50%, #2DD4BF 100%)',
+    footerBg: '#134E4A',
+    tags: ['#14B8A6,#0D9488','#14B8A6,#0D9488','#0D9488,#134E4A','#0D9488,#134E4A','#134E4A,#042F2E','#14B8A6,#0D9488'],
+    iconBg: '#F0FDFA',
+    divider: '#99F6E4',
+    shadow: 'rgba(19, 78, 74, 0.15)',
+    accent: '#14B8A6',
+    bodyBg: '#F0FDFA'
+  },
+  violet: {
+    headerGrad: 'linear-gradient(135deg, #4C1D95 0%, #8B5CF6 50%, #A78BFA 100%)',
+    footerBg: '#4C1D95',
+    tags: ['#8B5CF6,#7C3AED','#8B5CF6,#7C3AED','#7C3AED,#4C1D95','#7C3AED,#4C1D95','#4C1D95,#2E1065','#8B5CF6,#7C3AED'],
+    iconBg: '#F5F3FF',
+    divider: '#DDD6FE',
+    shadow: 'rgba(76, 29, 149, 0.15)',
+    accent: '#8B5CF6',
+    bodyBg: '#F5F3FF'
+  },
+  slate: {
+    headerGrad: 'linear-gradient(135deg, #1E293B 0%, #475569 50%, #64748B 100%)',
+    footerBg: '#1E293B',
+    tags: ['#64748B,#475569','#64748B,#475569','#475569,#1E293B','#475569,#1E293B','#1E293B,#0F172A','#64748B,#475569'],
+    iconBg: '#F1F5F9',
+    divider: '#CBD5E1',
+    shadow: 'rgba(30, 41, 59, 0.15)',
+    accent: '#64748B',
+    bodyBg: '#F1F5F9'
+  },
+  rose: {
+    headerGrad: 'linear-gradient(135deg, #881337 0%, #F43F5E 50%, #FB7185 100%)',
+    footerBg: '#881337',
+    tags: ['#F43F5E,#E11D48','#F43F5E,#E11D48','#E11D48,#881337','#E11D48,#881337','#881337,#4C0519','#F43F5E,#E11D48'],
+    iconBg: '#FFF1F2',
+    divider: '#FECDD3',
+    shadow: 'rgba(136, 19, 55, 0.15)',
+    accent: '#F43F5E',
+    bodyBg: '#FFF1F2'
+  },
+  sky: {
+    headerGrad: 'linear-gradient(135deg, #0369A1 0%, #0EA5E9 50%, #38BDF8 100%)',
+    footerBg: '#0369A1',
+    tags: ['#0EA5E9,#0284C7','#0EA5E9,#0284C7','#0284C7,#0369A1','#0284C7,#0369A1','#0369A1,#075985','#0EA5E9,#0284C7'],
+    iconBg: '#F0F9FF',
+    divider: '#BAE6FD',
+    shadow: 'rgba(3, 105, 161, 0.15)',
+    accent: '#0EA5E9',
+    bodyBg: '#F0F9FF'
+  },
+  amber: {
+    headerGrad: 'linear-gradient(135deg, #92400E 0%, #F59E0B 50%, #FCD34D 100%)',
+    footerBg: '#92400E',
+    tags: ['#F59E0B,#D97706','#F59E0B,#D97706','#D97706,#92400E','#D97706,#92400E','#92400E,#78350F','#F59E0B,#D97706'],
+    iconBg: '#FFFBEB',
+    divider: '#FDE68A',
+    shadow: 'rgba(146, 64, 14, 0.15)',
+    accent: '#F59E0B',
+    bodyBg: '#FFFBEB'
+  },
+  warm: {
+    headerGrad: 'linear-gradient(135deg, #78350F 0%, #A16207 50%, #CA8A04 100%)',
+    footerBg: '#78350F',
+    tags: ['#CA8A04,#A16207','#CA8A04,#A16207','#A16207,#78350F','#A16207,#78350F','#78350F,#451A03','#CA8A04,#A16207'],
+    iconBg: '#FEFCE8',
+    divider: '#FEF08A',
+    shadow: 'rgba(120, 53, 15, 0.15)',
+    accent: '#CA8A04',
+    bodyBg: '#FEFCE8'
+  }
+};
+
+let currentTheme = 'purple';
+let selectedEmoji = '📌';
+
+// Common emojis for picker
+const emojiList = [
+  '📌','📁','💡','🎯','🔔','⭐','🎁','💬','📝','📎',
+  '💻','📱','🎨','📸','🎵','☕','🍱','🍎','💧','📓',
+  '✏️','🗂️','📊','📈','🏆','🎓','👑','💎','🚀','🌟',
+  '🔔','📣','📊','📋','📑','🏷️','✅','❤️','🔥','💪'
+];
+
+// Init emoji picker
+(function() {
+  const list = document.getElementById('emojiList');
+  if (!list) return;
+  emojiList.forEach(e => {
+    const span = document.createElement('span');
+    span.textContent = e;
+    span.onclick = function() { pickEmoji(e, this); };
+    list.appendChild(span);
+  });
+  // Set default active
+  list.querySelector('span').classList.add('active');
+})();
+
+function toggleEmojiPicker() {
+  const picker = document.getElementById('emojiPicker');
+  picker.classList.toggle('visible');
+}
+
+function pickEmoji(emoji, el) {
+  selectedEmoji = emoji;
+  document.querySelectorAll('#emojiList span').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelector('.emoji-btn').textContent = emoji + ' 已选';
+  document.getElementById('emojiPicker').classList.remove('visible');
+}
+
+// Close emoji picker when clicking outside
+document.addEventListener('click', function(e) {
+  const picker = document.getElementById('emojiPicker');
+  const btn = document.querySelector('.emoji-btn');
+  if (!picker.contains(e.target) && !btn.contains(e.target)) {
+    picker.classList.remove('visible');
+  }
+});
+
+function setTheme(name, el) {
+  const t = themes[name];
+  if (!t) return;
+  currentTheme = name;
+
+  document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+
+  // body bg
+  document.body.style.background = t.bodyBg;
+
+  // card shadow
+  document.querySelector('.card').style.boxShadow = '0 8px 40px ' + t.shadow;
+
+  // header
+  document.querySelector('.header').style.background = t.headerGrad;
+
+  // footer
+  document.querySelector('.footer').style.background = t.footerBg;
+
+  // section icon bg (为您准备)
+  document.querySelector('.section-icon.purple').style.background = t.iconBg;
+
+  // divider
+  document.querySelector('.divider').style.background = 'linear-gradient(90deg, transparent, ' + t.divider + ', transparent)';
+
+  // tags — use data-theme-index for both static & dynamic
+  document.querySelectorAll('.tag-item').forEach(item => {
+    const idx = item.dataset.themeIndex;
+    if (idx !== undefined && t.tags[idx]) {
+      const colors = t.tags[idx].split(',');
+      item.style.background = 'linear-gradient(135deg, ' + colors[0] + ', ' + colors[1] + ')';
+    }
+  });
+
+  const btn = document.getElementById('downloadBtn');
+  const colors = t.tags[0].split(',');
+  btn.style.background = 'linear-gradient(135deg, ' + colors[0] + ', ' + colors[1] + ')';
+  btn.style.boxShadow = '0 4px 15px ' + t.shadow;
+}
+
+function addTag() {
+  const nameInput = document.getElementById('inputTagName');
+  const emoji = selectedEmoji || '📌';
+  const name = nameInput.value.trim();
+  if (!name) { alert('请输入项目名称'); return; }
+
+  const grid = document.getElementById('tagsGrid');
+  const t = themes[currentTheme];
+  const idx = (grid.children.length) % t.tags.length;
+  const colors = t.tags[idx].split(',');
+
+  const div = document.createElement('div');
+  div.className = 'tag-item';
+  div.dataset.emoji = emoji;
+  div.dataset.themeIndex = idx;
+  div.style.background = 'linear-gradient(135deg, ' + colors[0] + ', ' + colors[1] + ')';
+  div.innerHTML = emoji + ' ' + name + '<span class="tag-del" onclick="removeTag(this)">&#x2715;</span>';
+  grid.appendChild(div);
+
+  nameInput.value = '';
+  nameInput.focus();
+}
+
+function removeTag(el) {
+  const item = el.parentElement;
+  item.remove();
+}
+
+function updateCardText() {
+  const tag = document.getElementById('inputTag').value.trim();
+  const dateVal = document.getElementById('inputDate').value;
+  const startVal = document.getElementById('inputStartTime').value;
+  const endVal = document.getElementById('inputEndTime').value;
+
+  if (tag) document.getElementById('cardTag').textContent = tag;
+
+  if (dateVal && startVal && endVal) {
+    const d = new Date(dateVal);
+    const weekDays = ['周日','周一','周二','周三','周四','周五','周六'];
+    const weekDay = weekDays[d.getDay()];
+    const parts = dateVal.split('-');
+    const dateStr = parts[0] + '.' + parts[1] + '.' + parts[2];
+    const startStr = startVal.substring(0,5);
+    const endStr = endVal.substring(0,5);
+    document.getElementById('cardSub').textContent = dateStr + ' ' + weekDay + '  ' + startStr + ' - ' + endStr;
+  }
+}
+
+function updateContact() {
+  const name = document.getElementById('inputName').value.trim();
+  const phone = document.getElementById('inputPhone').value.trim();
+  const line = document.getElementById('contactLine');
+  const otherLine = document.querySelector('.footer .other-line');
+
+  if (name || phone) {
+    let text = '';
+    if (name && phone) {
+      text = '📞 联系人：' + name + '  |  ' + phone;
+    } else if (name) {
+      text = '📞 联系人：' + name;
+    } else {
+      text = '📞 ' + phone;
+    }
+    line.textContent = text;
+    line.classList.add('visible');
+    otherLine.style.display = 'none';
+  } else {
+    line.textContent = '';
+    line.classList.remove('visible');
+    otherLine.style.display = '';
+  }
+}
+
+function downloadImage() {
+  // Hide no-capture elements before download
+  document.querySelectorAll('.no-capture').forEach(el => el.classList.add('capture-hide'));
+
+  const btn = document.getElementById('downloadBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ 正在生成图片...';
+
+  const card = document.getElementById('captureArea');
+  html2canvas(card, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: '#f0eef5',
+    logging: false,
+    width: card.offsetWidth,
+    height: card.offsetHeight,
+  }).then(canvas => {
+    // Restore no-capture elements
+    document.querySelectorAll('.no-capture').forEach(el => el.classList.remove('capture-hide'));
+
+    const link = document.createElement('a');
+    link.download = '参会须知_第三期AI培训.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    btn.disabled = false;
+    btn.textContent = '✅ 下载成功，再次下载';
+    setTimeout(() => {
+      btn.textContent = '⬇ 下载看板图片';
+    }, 2000);
+  }).catch(() => {
+    document.querySelectorAll('.no-capture').forEach(el => el.classList.remove('capture-hide'));
+    btn.disabled = false;
+    btn.textContent = '⬇ 下载看板图片';
+    alert('生成失败，请尝试截图保存');
+  });
+}
+</script>
+</html>
