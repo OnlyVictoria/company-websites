@@ -38,9 +38,10 @@
     flex-shrink: 0;
   }
   .header .logo {
+    display: block;
+    margin: 0 auto 12px;
     width: auto;
-    height: 36px;
-    margin-bottom: 12px;
+    height: 80px;
     object-fit: contain;
   }
   .header::before {
@@ -333,6 +334,38 @@
   .download-bar button:active { transform: translateY(0); }
   .download-bar button:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
+  /* Save row */
+  .save-row {
+    margin-top: 10px;
+    width: min(450px, 90vw);
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  .save-row button {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  }
+  .save-btn {
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
+  }
+  .save-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4); }
+  .reset-btn {
+    background: #fff;
+    color: #666;
+    border: 1.5px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .reset-btn:hover { border-color: #999; transform: translateY(-1px); }
+
   /* Tag delete button */
   .tag-item { position: relative; }
   .tag-del {
@@ -482,6 +515,51 @@
   }
   .tag-add-row .add-btn:hover { transform: translateY(-1px); box-shadow: 0 3px 12px rgba(91,33,182,0.35); }
   .tag-add-row .add-btn:active { transform: translateY(0); }
+  .custom-theme-bar {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    width: min(450px, 90vw);
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .custom-theme-bar.visible { display: flex; }
+  .custom-theme-bar label {
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+  }
+  .custom-theme-bar input[type="color"] {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+    flex-shrink: 0;
+  }
+  .custom-theme-bar .apply-btn {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #7C3AED, #5B21B6);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  .custom-theme-bar .preview-bar {
+    width: 60px;
+    height: 24px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    border: 1px solid #ddd;
+  }
 </style>
 </head>
 <body>
@@ -491,7 +569,7 @@
 
   <!-- Header -->
   <div class="header">
-    <img src="logo.png" class="logo" alt="随州网·随州招聘网">
+    <img src="logo-ai-white.png" class="logo" alt="随州网·AI智能体">
     <div class="tag" id="cardTag">AI 工具应用培训课 · 第三期</div>
     <h1>参 会 须 知</h1>
     <div class="sub" id="cardSub">2026.06.13 周六 &nbsp; 8:30 - 18:00</div>
@@ -554,7 +632,7 @@
 
   <!-- Footer -->
   <div class="footer">
-    <div class="date">海翼美岁天地3号楼二楼（随州网运营中心）</div>
+    <div class="date" id="footerAddr">海翼美岁天地3号楼二楼（随州网运营中心）</div>
     <div id="contactLine" class="contact-line"></div>
     <div class="other-line">有任何问题请随时联系现场工作人员 · 祝大家学有所获！</div>
   </div>
@@ -578,6 +656,25 @@
   <div class="color-btn" style="background: linear-gradient(135deg, #EF4444, #991B1B);" data-theme="red" title="热情红" onclick="setTheme('red', this)"></div>
   <div class="color-btn" style="background: linear-gradient(135deg, #64748B, #1E293B);" data-theme="slate" title="石板灰" onclick="setTheme('slate', this)"></div>
   <div class="color-btn" style="background: linear-gradient(135deg, #1a1a2e, #16213e);" data-theme="dark" title="沉稳黑" onclick="setTheme('dark', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #FF6B6B, #C44569);" data-theme="coral" title="珊瑚红" onclick="setTheme('coral', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #f8b500, #fceabb);" data-theme="gold" title="奢华金" onclick="setTheme('gold', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #00c6ff, #0072ff);" data-theme="ocean" title="海洋蓝" onclick="setTheme('ocean', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);" data-theme="sweet" title="糖果粉" onclick="setTheme('sweet', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);" data-theme="dream" title="梦幻紫" onclick="setTheme('dream', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #84fab0, #8fd3f4);" data-theme="mint" title="薄荷绿" onclick="setTheme('mint', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #e0c3fc, #8ec5fc);" data-theme="lavender" title="薰衣草" onclick="setTheme('lavender', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #f093fb, #f5576c);" data-theme="sunset" title="日落" onclick="setTheme('sunset', this)"></div>
+  <div class="color-btn" style="background: linear-gradient(135deg, #4facfe, #00f2fe);" data-theme="neon" title="霓虹蓝" onclick="setTheme('neon', this)"></div>
+  <div class="color-btn" style="border: 2px dashed #999; background: linear-gradient(135deg, #fff, #f0f0f0);" title="自定义" onclick="toggleCustomTheme()">&#x270F;</div>
+</div>
+
+<!-- Custom theme picker -->
+<div class="custom-theme-bar" id="customThemeBar">
+  <label>&#x1F3A8; 自定义渐变</label>
+  <input type="color" id="customColor1" value="#7C3AED" onchange="updateCustomPreview()">
+  <input type="color" id="customColor2" value="#5B21B6" onchange="updateCustomPreview()">
+  <div class="preview-bar" id="customPreview"></div>
+  <button class="apply-btn" onclick="applyCustomTheme()">应用</button>
 </div>
 
 <!-- Input controls -->
@@ -607,10 +704,16 @@
 </div>
 
 <!-- Download Button outside card, not captured -->
-<div class="download-bar">
+<div class="download-bar no-capture">
   <button onclick="downloadImage()" id="downloadBtn">
     &#x2B07; 下载看板图片
   </button>
+</div>
+
+<!-- Save / Reset buttons -->
+<div class="save-row no-capture">
+  <button class="save-btn" onclick="saveState()">&#x1F4BE; 保存当前设置</button>
+  <button class="reset-btn" onclick="resetState()">&#x21BB; 恢复默认</button>
 </div>
 
 <script>/*!
@@ -794,6 +897,96 @@ const themes = {
     shadow: 'rgba(120, 53, 15, 0.15)',
     accent: '#CA8A04',
     bodyBg: '#FEFCE8'
+  },
+  coral: {
+    headerGrad: 'linear-gradient(135deg, #C44569 0%, #FF6B6B 50%, #FF8E8E 100%)',
+    footerBg: '#C44569',
+    tags: ['#FF6B6B,#E85D75','#FF6B6B,#E85D75','#E85D75,#C44569','#E85D75,#C44569','#C44569,#8B2F47','#FF6B6B,#E85D75'],
+    iconBg: '#FFF5F5',
+    divider: '#FFD1D1',
+    shadow: 'rgba(196, 69, 105, 0.15)',
+    accent: '#FF6B6B',
+    bodyBg: '#FFF5F5'
+  },
+  gold: {
+    headerGrad: 'linear-gradient(135deg, #D4A017 0%, #F4C430 50%, #FCEabb 100%)',
+    footerBg: '#B8860B',
+    tags: ['#F4C430,#DAA520','#F4C430,#DAA520','#DAA520,#B8860B','#DAA520,#B8860B','#B8860B,#8B6914','#F4C430,#DAA520'],
+    iconBg: '#FFFBEB',
+    divider: '#FDE68A',
+    shadow: 'rgba(184, 134, 11, 0.15)',
+    accent: '#DAA520',
+    bodyBg: '#FFFBEB'
+  },
+  ocean: {
+    headerGrad: 'linear-gradient(135deg, #006994 0%, #0072ff 50%, #00c6ff 100%)',
+    footerBg: '#005073',
+    tags: ['#0072ff,#0055A4','#0072ff,#0055A4','#0055A4,#006994','#0055A4,#006994','#006994,#003366','#0072ff,#0055A4'],
+    iconBg: '#E6F3FF',
+    divider: '#B3D9FF',
+    shadow: 'rgba(0, 114, 255, 0.15)',
+    accent: '#0072ff',
+    bodyBg: '#E6F3FF'
+  },
+  sweet: {
+    headerGrad: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%)',
+    footerBg: '#e06c75',
+    tags: ['#ff9a9e,#e06c75','#ff9a9e,#e06c75','#e06c75,#c0392b','#e06c75,#c0392b','#c0392b,#922b21','#ff9a9e,#e06c75'],
+    iconBg: '#FFF0F3',
+    divider: '#FFD6E0',
+    shadow: 'rgba(224, 108, 117, 0.15)',
+    accent: '#e06c75',
+    bodyBg: '#FFF0F3'
+  },
+  dream: {
+    headerGrad: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 50%, #fad0c4 100%)',
+    footerBg: '#8e7cc3',
+    tags: ['#fbc2eb,#a18cd1','#fbc2eb,#a18cd1','#a18cd1,#8e7cc3','#a18cd1,#8e7cc3','#8e7cc3,#6a5acd','#fbc2eb,#a18cd1'],
+    iconBg: '#F5E6FF',
+    divider: '#E8D5F2',
+    shadow: 'rgba(142, 124, 195, 0.15)',
+    accent: '#a18cd1',
+    bodyBg: '#F5E6FF'
+  },
+  mint: {
+    headerGrad: 'linear-gradient(135deg, #84fab0 0%, #8fd3f4 50%, #a8edea 100%)',
+    footerBg: '#4CAF50',
+    tags: ['#84fab0,#66BB6A','#84fab0,#66BB6A','#66BB6A,#4CAF50','#66BB6A,#4CAF50','#4CAF50,#2E7D32','#84fab0,#66BB6A'],
+    iconBg: '#E0F7FA',
+    divider: '#B2EBF2',
+    shadow: 'rgba(76, 175, 80, 0.15)',
+    accent: '#66BB6A',
+    bodyBg: '#E0F7FA'
+  },
+  lavender: {
+    headerGrad: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 50%, #c2e9fb 100%)',
+    footerBg: '#7B68EE',
+    tags: ['#8ec5fc,#7B68EE','#8ec5fc,#7B68EE','#7B68EE,#6A5ACD','#7B68EE,#6A5ACD','#6A5ACD,#483D8B','#8ec5fc,#7B68EE'],
+    iconBg: '#E8E0FF',
+    divider: '#D1C4E9',
+    shadow: 'rgba(123, 104, 238, 0.15)',
+    accent: '#7B68EE',
+    bodyBg: '#E8E0FF'
+  },
+  sunset: {
+    headerGrad: 'linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #feca57 100%)',
+    footerBg: '#d63031',
+    tags: ['#f5576c,#d63031','#f5576c,#d63031','#d63031,#c0392b','#d63031,#c0392b','#c0392b,#922b21','#f5576c,#d63031'],
+    iconBg: '#FFF0F5',
+    divider: '#FFD6E0',
+    shadow: 'rgba(214, 48, 49, 0.15)',
+    accent: '#f5576c',
+    bodyBg: '#FFF0F5'
+  },
+  neon: {
+    headerGrad: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%)',
+    footerBg: '#0ea5e9',
+    tags: ['#00f2fe,#0ea5e9','#00f2fe,#0ea5e9','#0ea5e9,#0284c7','#0ea5e9,#0284c7','#0284c7,#0369a1','#00f2fe,#0ea5e9'],
+    iconBg: '#E0F7FF',
+    divider: '#A5F3FC',
+    shadow: 'rgba(14, 165, 233, 0.15)',
+    accent: '#00f2fe',
+    bodyBg: '#E0F7FF'
   }
 };
 
@@ -850,7 +1043,12 @@ function setTheme(name, el) {
   currentTheme = name;
 
   document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
+  if (el && el.classList) {
+    el.classList.add('active');
+  } else {
+    const btn = document.querySelector('.color-btn[data-theme="' + name + '"]');
+    if (btn) btn.classList.add('active');
+  }
 
   // body bg
   document.body.style.background = t.bodyBg;
@@ -883,6 +1081,58 @@ function setTheme(name, el) {
   const colors = t.tags[0].split(',');
   btn.style.background = 'linear-gradient(135deg, ' + colors[0] + ', ' + colors[1] + ')';
   btn.style.boxShadow = '0 4px 15px ' + t.shadow;
+}
+
+function toggleCustomTheme() {
+  const bar = document.getElementById('customThemeBar');
+  bar.classList.toggle('visible');
+  if (bar.classList.contains('visible')) {
+    updateCustomPreview();
+  }
+}
+
+function updateCustomPreview() {
+  const c1 = document.getElementById('customColor1').value;
+  const c2 = document.getElementById('customColor2').value;
+  document.getElementById('customPreview').style.background = 'linear-gradient(135deg, ' + c1 + ', ' + c2 + ')';
+}
+
+function applyCustomTheme() {
+  const c1 = document.getElementById('customColor1').value;
+  const c2 = document.getElementById('customColor2').value;
+
+  // 取消所有预设按钮的选中状态
+  document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+
+  // 构建自定义主题对象
+  const custom = {
+    headerGrad: 'linear-gradient(135deg, ' + c1 + ' 0%, ' + c2 + ' 100%)',
+    footerBg: c2,
+    tags: [c1 + ',' + c2, c1 + ',' + c2, c2 + ',' + c1, c2 + ',' + c1, c1 + ',' + c2, c1 + ',' + c2],
+    iconBg: c1 + '20',
+    divider: c1 + '40',
+    shadow: 'rgba(0,0,0,0.15)',
+    accent: c1,
+    bodyBg: '#f0eef5'
+  };
+
+  // 直接应用样式
+  document.body.style.background = custom.bodyBg;
+  document.querySelector('.card').style.boxShadow = '0 8px 40px ' + custom.shadow;
+  document.querySelector('.header').style.background = custom.headerGrad;
+  document.querySelector('.footer').style.background = custom.footerBg;
+  document.querySelector('.section-icon.purple').style.background = custom.iconBg;
+  document.querySelector('.divider').style.background = 'linear-gradient(90deg, transparent, ' + custom.divider + ', transparent)';
+
+  document.querySelectorAll('.tag-item').forEach(item => {
+    item.style.background = 'linear-gradient(135deg, ' + c1 + ', ' + c2 + ')';
+  });
+
+  const btn = document.getElementById('downloadBtn');
+  btn.style.background = 'linear-gradient(135deg, ' + c1 + ', ' + c2 + ')';
+  btn.style.boxShadow = '0 4px 15px ' + custom.shadow;
+
+  currentTheme = 'custom';
 }
 
 function addTag() {
@@ -994,5 +1244,103 @@ function downloadImage() {
     alert('生成失败，请尝试截图保存');
   });
 }
+
+/* ========== Save / Load State ========== */
+function saveState() {
+  const tags = [];
+  document.querySelectorAll('#tagsGrid .tag-item').forEach(item => {
+    const fullText = item.childNodes[0] ? item.childNodes[0].textContent.trim() : '';
+    const emoji = item.dataset.emoji || '';
+    const text = fullText.replace(emoji, '').trim();
+    tags.push({ emoji: emoji, text: text, themeIndex: item.dataset.themeIndex || '0' });
+  });
+
+  const state = {
+    theme: currentTheme,
+    tag: document.getElementById('inputTag').value,
+    date: document.getElementById('inputDate').value,
+    startTime: document.getElementById('inputStartTime').value,
+    endTime: document.getElementById('inputEndTime').value,
+    name: document.getElementById('inputName').value,
+    phone: document.getElementById('inputPhone').value,
+    addr: document.getElementById('footerAddr').textContent,
+    tags: tags
+  };
+
+  localStorage.setItem('canzhi_state_v1', JSON.stringify(state));
+
+  const btn = document.querySelector('.save-btn');
+  const oldText = btn.textContent;
+  btn.textContent = '✅ 已保存';
+  setTimeout(() => { btn.textContent = oldText; }, 1500);
+}
+
+function loadState() {
+  const raw = localStorage.getItem('canzhi_state_v1');
+  if (!raw) return;
+
+  try {
+    const state = JSON.parse(raw);
+
+    // Restore theme
+    if (state.theme) {
+      if (themes[state.theme]) {
+        setTheme(state.theme);
+      } else {
+        // custom theme fallback
+        currentTheme = state.theme;
+      }
+    }
+
+    // Restore inputs
+    if (state.tag !== undefined) document.getElementById('inputTag').value = state.tag;
+    if (state.date) document.getElementById('inputDate').value = state.date;
+    if (state.startTime) document.getElementById('inputStartTime').value = state.startTime;
+    if (state.endTime) document.getElementById('inputEndTime').value = state.endTime;
+    if (state.name !== undefined) document.getElementById('inputName').value = state.name;
+    if (state.phone !== undefined) document.getElementById('inputPhone').value = state.phone;
+    if (state.addr) document.getElementById('footerAddr').textContent = state.addr;
+
+    // Restore tags
+    if (state.tags && state.tags.length > 0) {
+      const grid = document.getElementById('tagsGrid');
+      grid.innerHTML = '';
+      state.tags.forEach((t, i) => {
+        const div = document.createElement('div');
+        div.className = 'tag-item';
+        div.dataset.emoji = t.emoji || '📌';
+        div.dataset.themeIndex = t.themeIndex || (i % 6);
+        div.innerHTML = (t.emoji || '📌') + ' ' + (t.text || '') + '<span class="tag-del" onclick="removeTag(this)">&#x2715;</span>';
+        grid.appendChild(div);
+      });
+
+      // Re-apply current theme colors to restored tags
+      const tt = themes[currentTheme];
+      if (tt) {
+        document.querySelectorAll('.tag-item').forEach((item, idx) => {
+          const ci = idx % tt.tags.length;
+          const colors = tt.tags[ci].split(',');
+          item.style.background = 'linear-gradient(135deg, ' + colors[0] + ', ' + colors[1] + ')';
+          item.dataset.themeIndex = ci;
+        });
+      }
+    }
+
+    // Update displayed text
+    updateCardText();
+    updateContact();
+  } catch (e) {
+    console.error('Load state failed', e);
+  }
+}
+
+function resetState() {
+  if (!confirm('确定要恢复默认设置吗？当前修改将丢失。')) return;
+  localStorage.removeItem('canzhi_state_v1');
+  location.reload();
+}
+
+// Auto-load on page open
+window.addEventListener('DOMContentLoaded', loadState);
 </script>
 </html>
